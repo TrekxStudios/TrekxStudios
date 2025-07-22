@@ -3958,8 +3958,9 @@ td:last-child {
 }
 
 .folio-entries {
-    --width-grid-max: 1400px;
+    --width-grid-max: 1440px;
     margin-top      : var(--vspace-0_5);
+    
 }
 
 /* ------------------------------------------------------------------- 
@@ -4001,7 +4002,8 @@ td:last-child {
 }
 
 .folio-entries .entry {
-    position: relative;
+    position: relative; 
+    
 }
 
 .folio-entries .entry__info {

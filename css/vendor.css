@@ -47,6 +47,32 @@ pre[class*=language-] {
     overflow: auto;
 }
 
+/*new section for tweak*/
+/*
+.row.folio-entries {
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:20px !important;
+    outline: 2px solid green;
+
+}
+
+
+
+.column.entry {
+   
+    width: calc((100% / 3) - (5px * 2 /3)); 
+    box-sizing: border-box !important;
+    outline: 2px solid red;
+}
+.entry__thumb {
+    display:block;
+    width: 100%;
+    height: auto;
+    box-sizing:border-box;
+}*/
+/*end edit*/
+
 :not(pre)>code[class*=language-],
 pre[class*=language-] {
     background: #272822;
