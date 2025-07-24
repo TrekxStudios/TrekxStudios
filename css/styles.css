@@ -144,7 +144,7 @@
     --color-gray-13: #a5a7a5;
     --color-gray-12: #bdbebd;
     --color-gray-11: #d4d6d4;
-    --color-gray-10: #eceeec;
+    --color-gray-10: #2b2b2b;
     --color-gray-9 : #eef0ee;
     --color-gray-8 : #f0f1f0;
     --color-gray-7 : #f2f3f2;
@@ -153,8 +153,8 @@
     --color-gray-4 : #f7f8f7;
     --color-gray-3 : #f9faf9;
     --color-gray-2 : #fbfcfb;
-    --color-gray-1 : #fbfcfb;
-    --color-white  : #ffffff;
+    --color-gray-1 : #212c1e;
+    --color-white  :  #ffffff;
 
   /* text
    */
