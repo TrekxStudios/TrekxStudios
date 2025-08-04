@@ -2801,6 +2801,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 1.2rem;
+    
 }
 
 .swiper-container .swiper-pagination-bullet {
@@ -4064,16 +4065,17 @@ td:last-child {
 
 .s-testimonials__header {
     margin-top   : 0;
-    margin-bottom: var(--vspace-2);
+    margin-bottom: var(--vspace-3);
     text-align   : center;
+    
 }
 
 .s-testimonials .swiper-container {
-    padding-bottom: var(--vspace-2);
+    padding-bottom: var(--vspace-3);
 }
 
 .s-testimonials__slide {
-    position: relative;
+    position:  
 }
 
 .s-testimonials__author {
@@ -4108,7 +4110,7 @@ td:last-child {
     font-size  : calc(var(--text-size) * 0.9);
     font-weight: 500;
     line-height: var(--vspace-0_75);
-    color      : var(--color-text-dark);
+    color      : whitesmoke;
 }
 
 .s-testimonials__cite span {
