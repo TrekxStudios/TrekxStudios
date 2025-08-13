@@ -6,7 +6,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trekx Studios</title>
+    <title>Trekx Studios, Video Production, multimedia, and Drone Services</title>
 
     <script>
         document.documentElement.classList.remove('no-js');
@@ -17,6 +17,7 @@
     ================================================== -->
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/intro.css">
 
     <!-- favicons
     ================================================== -->
@@ -24,13 +25,30 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    
 
 </head>
 
 
 <body id="top">
+<!--Section for Video load-->
+<body>
+  <div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+      <source src="./images/folio/suds.mp4" type="video/mp4">
+      <!-- Fallback for unsupported browsers -->
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-    
+  <div id="main-content" style="display: none;">
+    <!-- Your normal site content begins here -->
+  </div>
+
+  <script src="intro.js"></script>
+</body>
+
+    <!--End section for video load-->
     <!-- preloader
     ================================================== -->
     <div id="preloader">
