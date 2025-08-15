@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const video = document.getElementById("intro-video");
   const main = document.getElementById("main-content");
 
-  const fadeDuration = 2; // seconds to fade out before video ends
+  const fadeDuration = .7; // seconds to fade out before video ends
 
   video.addEventListener("timeupdate", function() {
     if (video.duration - video.currentTime <= fadeDuration && !overlay.classList.contains("hidden")) {
