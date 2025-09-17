@@ -298,7 +298,11 @@
 
    /* Initialize
     * ------------------------------------------------------ */
-    (function ssInit() {
+   
+
+    
+
+   (function ssInit() {
 
         ssPreloader();
         ssMoveHeader();
@@ -310,5 +314,17 @@
         ssMoveTo();
 
     })();
+    /* (function ssInit() {
+
+        ssPreloader();
+        ssMoveHeader();
+        ssMobileMenu();
+        ssScrollSpy();
+        ssGLightbox();
+        ssSwiper();
+        ssAlertBoxes();
+        ssMoveTo();
+
+    })/*()*/
 
 })(document.documentElement);

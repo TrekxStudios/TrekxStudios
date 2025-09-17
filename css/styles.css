@@ -4074,9 +4074,9 @@ td:last-child {
     padding-bottom: var(--vspace-3);
 }
 
-.s-testimonials__slide {
+/*.s-testimonials__slide {
     position:  
-}
+}*/
 
 .s-testimonials__author {
     display      : inline-block;
