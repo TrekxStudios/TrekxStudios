@@ -12,7 +12,7 @@ const session = await stripe.checkout.sessions.create({
     quantity: 1,
   }],
   mode: 'payment',
-  success_url: 'https://yoursite.com/success',
-  cancel_url: 'https://yoursite.com/cancel',
+  success_url: 'https://www.trekxstudios.com/success',
+  cancel_url: 'https://www.trekxstudios.com/cancel',
 });
 
