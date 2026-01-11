@@ -153,7 +153,7 @@
     --color-gray-4 : #f7f8f7;
     --color-gray-3 : #f9faf9;
     --color-gray-2 : #fbfcfb;
-    --color-gray-1 : #212c1e;
+    --color-gray-1 : #181818;
     --color-white  :  #ffffff;
 
   /* text
@@ -893,7 +893,7 @@ table {
         width: 91.6666666667%;
     }
 
-    .mob-12 {
+    .mob-12 { 
         flex : none;
         width: 100%;
     }
@@ -1830,7 +1830,7 @@ img,
 
 /* dots jump */
 .dots-jump>div {
-    animation      : dots-jump 1.2s infinite ease;
+    animation      : dots-jump 1.0s infinite ease;
     animation-delay: 0.2s;
 }
 
@@ -1858,7 +1858,7 @@ img,
 
 /* dots fade */
 .dots-fade>div {
-    animation      : dots-fade 1.6s infinite ease;
+    animation      : dots-fade 1.2s infinite ease;
     animation-delay: 0.4s;
 }
 
@@ -1918,12 +1918,12 @@ img,
 .ss-loaded #preloader {
     opacity   : 0;
     visibility: hidden;
-    transition: all 5.2s 5.5s ease-in-out;
+    transition: all .8s .8s ease-in-out;
 }
 
 .ss-loaded #preloader #loader {
     opacity   : 0;
-    transition: opacity 5.2s ease-in-out;
+    transition: opacity .7s ease-in-out;
 }
 
 
