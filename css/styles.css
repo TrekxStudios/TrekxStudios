@@ -1,4 +1,15 @@
 @charset "UTF-8";
+.canva-stack {
+  max-width: 100%;
+}
+
+.canva-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
 
 /* =================================================================== 
  * Hudson Main Stylesheet
