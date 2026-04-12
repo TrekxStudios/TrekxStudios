@@ -3490,6 +3490,7 @@ td:last-child {
 .s-intro__content-media img {
     z-index       : 2;
     -o-object-fit : cover;
+    object-position: 75% center;
     object-fit    : cover;
     vertical-align: bottom;
     width         : 100%;
