@@ -3451,11 +3451,9 @@ td:last-child {
 }
 
 .s-intro__content-media {
-    position: absolute;
-    top     : 0;
-    right   : 0;
-    bottom  : 0;
-    left    : 50%;
+     position: absolute;
+    inset: 0;
+    overflow: hidden;
 }
 
 .s-intro__content-media::before {
@@ -3485,18 +3483,15 @@ td:last-child {
     background    : linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     opacity       : 0.3;
+    
 }
 
 .s-intro__content-media img {
-    z-index       : 2;
-    -o-object-fit : cover;
-    object-position: 75% center;
-    object-fit    : cover;
-    vertical-align: bottom;
-    width         : 100%;
-    height        : 100%;
-    margin        : 0;
-    padding       : 0;
+  width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    
 }
 
 /* --------------------------------------------------------------------
@@ -3510,8 +3505,9 @@ td:last-child {
     --hline-width                : min(16rem, 8vw);
     z-index                      : 2;
     position                     : absolute;
-    bottom                       : var(--content-padding-bottom);
-    left                         : calc(50% + var(--hline-width) / 2);
+    bottom: 4rem;
+    right: 10%;
+    transform:translateY(-50%);
 }
 
 .s-intro__btn-download .btn--stroke {
@@ -3648,7 +3644,10 @@ td:last-child {
 
 .s-intro__btn-download {
     transition-property: opacity, transform;
-    transform          : translateX(-150px);
+   position: absolute;
+    bottom: 4rem; /* or clamp */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .no-js .s-header__inner,
