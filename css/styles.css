@@ -3754,6 +3754,7 @@ td:last-child {
 }
 
 @media screen and (max-width: 1080px) {
+    
     .s-intro {
         --content-padding-top   : max(12rem, 16vh);
         --content-padding-bottom: 9.6rem;
@@ -3880,13 +3881,24 @@ td:last-child {
     .s-intro__scroll-down::before {
         display: none;
     }
+    .s-intro__content-media img {
+        background-position: center top !important;
+        min-height: 70vh !important;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .s-intro {
         --content-padding-top: max(10rem, 10vh);
     }
+    .s-intro__content-media img {
+        background-position: center 5% !important;
+        background-size: cover !important;
+        height: auto !important;
+        aspect-ratio: 4/5 !important;
+    }
 }
+
 
 
 /* ===================================================================
