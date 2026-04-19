@@ -3722,6 +3722,21 @@ td:last-child {
  * responsive:
  * intro
  * ------------------------------------------------------------------- */
+/** new media screen for wide desktop**/
+@media screen and (min-width: 1601px) {
+     .ss-go-top {
+        bottom: 35rem !important;
+        right: -14rem !important;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+     .ss-go-top {
+        bottom: 40rem !important;
+        right: .38rem !important;
+    }
+}
+
 @media screen and (max-width: 1400px) {
     .s-intro__content-pretitle {
         font-size  : var(--text-sm);
@@ -3734,6 +3749,11 @@ td:last-child {
 
     .s-intro__scroll-down {
         right: var(--gutter);
+    }
+
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -1.8rem !important;
     }
 }
 
@@ -3751,6 +3771,12 @@ td:last-child {
         --hline-width: min(4rem, 4vw);
         left         : calc(50% + var(--hline-width) - 2px);
     }
+    /**added as adjustment to new hero image**/
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -1.8rem !important;
+    }
+
 }
 
 @media screen and (max-width: 1080px) {
@@ -3863,10 +3889,14 @@ td:last-child {
         height: var(--vspace-1_5);
         width : var(--vspace-1_5);
     }
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -2.5rem !important;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    .s-intro__content-text {
+  /**  .s-intro__content-text {
         max-width: 80vw;
     }
 
@@ -3880,34 +3910,49 @@ td:last-child {
 
     .s-intro__scroll-down::before {
         display: none;
-    }
+    }**/
     /**These were added as adjustments to the hero photo being cropped**/
-    .s-intro__content-media img {
-        background-position: center top !important;
-        min-height: 70vh !important;
-        .s-intro__scroll-down, 
-    .s-intro__btn-download {
-        bottom: 2rem !important; 
+   .s-intro__content-media img {
+        object-position: center 5% !important; 
+    }
+
+    .s-intro, 
+    .s-intro__content {
+        min-height: auto !important; 
+        height: auto !important;
+        aspect-ratio: 4 / 5 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* Pulls text to the top */
+        padding-top: 6.7rem !important; /* Adjust this to move your name up/down */
     }
     
    .s-intro__content-btns {
-        margin-top: 1.5rem !important;
+        margin-top: 5rem !important;
         position: relative !important;
         z-index: 5 !important;
     }
 
-    .s-intro__scroll-down, 
+    .s-intro__scroll-down {
+            bottom: 19.3rem !important;
+            right: 2.1rem !important;
+    } 
+    .ss-go-top {
+        bottom: 48.5rem !important;
+        right: -2.5rem !important;
+    }
     .s-intro__btn-download {
-        bottom: 1.5rem !important; 
+        bottom: 3.5rem !important; 
     }
     
     .s-intro__social {
-        bottom: 8rem !important;
+        bottom: 2.5rem !important;
     }
 
+   
     }
 /**End adjustments**/
-}
+
 
 @media screen and (max-width: 400px) {
     .s-intro {
@@ -3918,24 +3963,40 @@ td:last-child {
         background-position: center 5% !important;
         background-size: cover !important;
         height: auto !important;
-        aspect-ratio: 4/5 !important;
+        aspect-ratio: 2 / 3 !important;
     }
 
     .s-intro, 
     .s-intro__content {
-        aspect-ratio: 3 / 4 !important; 
+        aspect-ratio: 2 / 3 !important; 
     
     }
 
     .s-intro__content-btns {
-        margin-top: 1rem !important;
+        bottom: 3rem !important;
     }
 
-    .s-intro__scroll-down, 
-    .s-intro__btn-download {
+
+    .s-intro__scroll-down {
         bottom: 1rem !important;
+        display: none !important;
+        
+    } 
+    .ss-go-top {
+        display: none !important;
     }
 
+    
+
+    .s-intro__btn-download {
+        bottom: .05rem !important;
+        
+    }
+
+    .s-intro__social {
+        margin-top:  1rem !important;
+        right: 2rem !important;
+    }
     /** end mobile adjustments**/
 }
 
