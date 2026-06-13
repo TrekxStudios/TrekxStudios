@@ -3948,6 +3948,18 @@ td:last-child {
     .s-intro__sidebar-dock {
         right: 1rem !important;
     }
+
+    /* ─── NEW SAFETY FIX FOR SHORTER PHONES ─── */
+    .s-intro__sidebar-dock .s-intro__scroll-down {
+        display: flex !important; /* Prevents template defaults from hiding it */
+    }
+
+    /* Tightens up the vertical gaps early so elements never clip off-screen */
+    .s-intro__sidebar-dock .ss-go-top,
+    .s-intro__sidebar-dock .s-intro__social,
+    .s-intro__sidebar-dock .s-intro__scroll-down {
+        margin-bottom: 1.2rem !important; 
+    }
 }
 /**End adjustments**/
 
@@ -3956,7 +3968,6 @@ td:last-child {
         --content-padding-top: max(10rem, 10vh);
     }
     
-    /**Adjustments for crop on mobile**/
     .s-intro__content-media img {
         background-position: center 5% !important;
         background-size: cover !important;
@@ -3977,11 +3988,16 @@ td:last-child {
         bottom: .05rem !important;
     }
 
-    /* DOCK RESPONSIVE ADJUSTMENT */
+    /* Keep the display uniform on ultra-narrow panels */
     .s-intro__sidebar-dock .s-intro__scroll-down {
-        display: none !important;
+        display: flex !important; 
     }
-    /** end mobile adjustments**/
+    
+    .s-intro__sidebar-dock .ss-go-top,
+    .s-intro__sidebar-dock .s-intro__social,
+    .s-intro__sidebar-dock .s-intro__scroll-down {
+        margin-bottom: 1.2rem !important; 
+    }
 }
 
 
@@ -4766,12 +4782,31 @@ td:last-child {
     .s-intro2__sidebar-dock {
         right: 1rem !important;
     }
+
+    /* ─── NEW SAFETY FIX FOR ISOLATED PAGE ON SHORTER PHONES ─── */
+    .s-intro2__sidebar-dock .s-intro2__scroll-down {
+        display: flex !important; /* Overrides template defaults trying to hide it */
+    }
+
+    /* Tightens the stack spacing early so it doesn't clip past the viewport floor */
+    .s-intro2__sidebar-dock .ss-go-top2,
+    .s-intro2__sidebar-dock .s-intro2__social,
+    .s-intro2__sidebar-dock .s-intro2__scroll-down {
+        margin-bottom: 1.2rem !important; 
+    }
 }
 
 @media screen and (max-width: 400px) {
-    /* Hides just the scroll icon on small phones; top and socials stay perfectly centered */
+    /* ─── FIXED: CHANGED FROM DISPLAY: NONE TO DISPLAY: FLEX ─── */
     .s-intro2__sidebar-dock .s-intro2__scroll-down {
-        display: none !important;
+        display: flex !important; /* Forces the icon to stay completely visible on tiny phones */
+    }
+
+    /* Maintains the compact spacing layout down to ultra-narrow viewports */
+    .s-intro2__sidebar-dock .ss-go-top2,
+    .s-intro2__sidebar-dock .s-intro2__social,
+    .s-intro2__sidebar-dock .s-intro2__scroll-down {
+        margin-bottom: 1.2rem !important; 
     }
 }
 
@@ -4779,10 +4814,9 @@ td:last-child {
 .canva-stack2 {
     position: relative !important;
     width: 100%;
-    height: auto !important; /* Changed from 100% to auto so Pic-Time embed expands natively */
-    overflow: visible !important; /* Changed from hidden so gallery displays cleanly below fold */
+    height: auto !important; /* Expands natively with the Pic-Time embed footprint */
+    overflow: visible !important; /* Ensures gallery sections display cleanly below the fold */
 }
-
 /* ====================================================================
  * # INTRO2 TRANSITIONS (UPDATED FOR UNIFIED DOCK)
  * ==================================================================== */
