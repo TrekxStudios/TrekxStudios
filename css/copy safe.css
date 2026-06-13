@@ -3556,23 +3556,12 @@ td:last-child {
  * ## intro scroll down
  * -------------------------------------------------------------------- */
 .s-intro__scroll-down {
-  --width-label   : 11rem;
-    z-index         : 997 !important; /* Floats safely over the Pic-Time gallery layers */
-    display         : flex;
-    align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 1) !important; 
-    right           :2.5rem !important; 
-
-    /* Keeps your cool vertical rotated design layout intact */
-    
-    
+    --line-length: 8rem;
+    z-index      : 2;
+    position     : absolute;
+    bottom       : var(--vspace-2);
+    right        : calc(var(--gutter) + var(--vspace-0_75));
 }
-
 
 .s-intro__scroll-down::before {
     content         : "";
@@ -3603,8 +3592,8 @@ td:last-child {
     display        : flex;
     justify-content: center;
     align-items    : center;
-    height         : 4.5rem;
-    width          : 4.5rem;
+    height         : var(--vspace-1_75);
+    width          : var(--vspace-1_75);
     border-radius  : 50%;
     border         : 2px solid white;
 }
@@ -3735,11 +3724,17 @@ td:last-child {
  * ------------------------------------------------------------------- */
 /** new media screen for wide desktop**/
 @media screen and (min-width: 1601px) {
-     
+     .ss-go-top {
+        bottom: 35rem !important;
+        right: -14rem !important;
+    }
 }
 
 @media screen and (max-width: 1600px) {
-    
+     .ss-go-top {
+        bottom: 40rem !important;
+        right: .38rem !important;
+    }
 }
 
 @media screen and (max-width: 1400px) {
@@ -3756,7 +3751,10 @@ td:last-child {
         right: var(--gutter);
     }
 
-    
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -1.8rem !important;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -3773,7 +3771,11 @@ td:last-child {
         --hline-width: min(4rem, 4vw);
         left         : calc(50% + var(--hline-width) - 2px);
     }
-    
+    /**added as adjustment to new hero image**/
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -1.8rem !important;
+    }
 
 }
 
@@ -3887,7 +3889,10 @@ td:last-child {
         height: var(--vspace-1_5);
         width : var(--vspace-1_5);
     }
-    
+    .ss-go-top {
+        bottom: 40rem !important;
+        right: -2.5rem !important;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -3934,7 +3939,10 @@ td:last-child {
             bottom: 12.3rem !important;
             right: 2.1rem !important;
     } 
-    
+    .ss-go-top {
+        bottom: 58.5rem !important;
+        right: -2.35rem !important;
+    }
     .s-intro__btn-download {
         bottom: 3.5rem !important; 
     }
@@ -3975,6 +3983,9 @@ td:last-child {
         display: none !important;
         
     } 
+    .ss-go-top {
+        display: none !important;
+    }
 
     
 
@@ -4458,23 +4469,14 @@ td:last-child {
 /* ------------------------------------------------------------------- 
  * ## go top
  * ------------------------------------------------------------------- */
-/* ====================================================================
- * # GLOBAL BACK-TO-TOP ENGINE (.ss-go-top)
- * ==================================================================== */
 .ss-go-top {
     --width-label   : 11rem;
-    z-index         : 9999 !important; /* Floats safely over the Pic-Time gallery layers */
+    z-index         : 2;
     display         : flex;
     align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 15) !important; 
-    right           :-2rem !important; 
-
-    /* Keeps your cool vertical rotated design layout intact */
+    position        : absolute;
+    bottom          : calc(var(--bottom-padding) - var(--vspace-0_5));
+    right           : calc(var(--gutter) + var(--vspace-0_75) - var(--width-label) - var(--vspace-1_75) - var(--vspace-0_75));
     transform       : rotate(-90deg);
     transform-origin: left bottom;
 }
@@ -4502,7 +4504,6 @@ td:last-child {
     border         : 2px solid white;
     margin-right   : var(--vspace-0_75);
     position       : relative;
-    background     : rgba(0, 0, 0, 0.2); /* Subtle backdrop backdrop so it's readable over white photos */
 }
 
 .ss-go-top svg {
@@ -4512,23 +4513,6 @@ td:last-child {
 
 .ss-go-top svg path {
     fill: white;
-}
-
-/* ====================================================================
- * # RESPONSIVE BREAKPOINTS (MOBILE OVERRIDES)
- * ==================================================================== */
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        bottom: 2rem !important;
-        right: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    /* Hide on very tiny screens so it doesn't overlap text content */
-    .ss-go-top {
-        display: none !important;
-    }
 }
 
 /* ------------------------------------------------------------------- 
@@ -4750,24 +4734,17 @@ td:last-child {
 
 /* ## intro2 social */
 .s-intro2__social {
-    --width-label   : 11rem;
-    z-index         : 997 !important; /* Raised to match standard overlay hierarchy */
-    display         : flex !important;
-    flex-direction  : column !important;
-    align-items     : center !important;
-    position        : fixed !important; 
-    
-    /* TARGETED LOCATION COORDINATES */
-   top        : calc(50vh + 2.5rem) !important; 
-   bottom     : auto !important;
-    right           : calc(var(--gutter) + var(--vspace-1_25) * -.1) !important;
+    z-index : 2;
+    display : block;
+    position: absolute;
+    top  : calc(var(--vspace-2) + var(--vspace-1_75) + 50rem);
+    right   : calc(var(--gutter) + var(--vspace-1_25));
 }
 
 .s-intro2__social li {
-    display       : block !important;
-    padding-right : 12px;
-    margin-right  : 0;
-    margin-bottom : 1.5rem !important; /* Added visual spacing gap for vertical display alignment */
+    padding-right: 0;
+    margin-right : 0;
+    margin-bottom: var(--vspace-0_625);
 }
 
 .s-intro2__social svg {
@@ -4782,16 +4759,11 @@ td:last-child {
 
 /* ## intro2 scroll down */
 .s-intro2__scroll-down {
-    --width-label   : 11rem;
-    z-index         : 9999 !important; 
-    display         : flex;
-    align-items     : center;
-    position        : fixed !important; 
-    
-    /* TARGETED LOCATION COORDINATES */
-    top             : calc(50vh + 8rem) !important;
-    bottom          : auto !important; 
-    right           : 1.45rem !important; /* Switched to matching right anchor tracking context */
+    --line-length: 8rem;
+    z-index      : 99 !important;
+    position     : absolute!important;
+    top       : calc(var(--vspace-1) * 27) !important;
+    right        : calc(var(--gutter) + var(--vspace-0_75));
 }
 
 .s-intro2__scroll-down::before {
@@ -4800,8 +4772,8 @@ td:last-child {
     height          : var(--line-length);
     width           : 1px;
     background-color: rgba(255, 255, 255, 0.5);
-    position        : absolute !important;
-    top             : calc(var(--line-length) * -1 - var(--vspace-1)) !important;
+    position        : absolute!important;
+    top             : calc(var(--line-length) * -1 - var(--vspace-1))!important;
     left            : 50%;
 }
 
@@ -4823,505 +4795,40 @@ td:last-child {
     display        : flex;
     justify-content: center;
     align-items    : center;
-    height         : 4.5rem; /* Matched 1:1 with go-top outer boundary dimensional box */
-    width          : 4.5rem;
-    border-radius  : 50%;
-    border         : 2px solid white;
-    background     : rgba(0, 0, 0, 0.2);
-}
-
-.s-intro2__scroll-down svg {
-    height: 1.8rem !important; /* Matched symbol scale sizing anchor */
-    width : 1.8rem !important; 
-}
-
-.s-intro2__scroll-down svg path {
-    fill: white !important;
-}
-
-/* ====================================================================
- * # GLOBAL BACK-TO-TOP ENGINE (.ss-go-top2)
- * ==================================================================== */
-.ss-go-top {
-    --width-label   : 11rem;
-    z-index         : 9999 !important; /* Floats safely over the Pic-Time gallery layers */
-    display         : flex;
-    align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 15) !important; 
-    right           :-2rem !important; 
-
-    /* Keeps your cool vertical rotated design layout intact */
-    transform       : rotate(-90deg);
-    transform-origin: left bottom;
-}
-
-.ss-go-top span {
-    display       : block;
-    width         : var(--width-label);
-    font-size     : 1.1rem;
-    font-weight   : 300;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color         : var(--color-gray-15);
-    position      : relative;
-}
-
-.ss-go-top a {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    text-decoration: none;
-    border         : none;
     height         : var(--vspace-1_75);
     width          : var(--vspace-1_75);
     border-radius  : 50%;
     border         : 2px solid white;
-    margin-right   : var(--vspace-0_75);
-    position       : relative;
-    background     : rgba(0, 0, 0, 0.2); /* Subtle backdrop backdrop so it's readable over white photos */
-}
-
-.ss-go-top svg {
-    height: calc(0.3 * var(--space));
-    width : calc(0.3 * var(--space));
-}
-
-.ss-go-top svg path {
-    fill: white;
-}
-
-/* ====================================================================
- * # RESPONSIVE BREAKPOINTS (MOBILE OVERRIDES)
- * ==================================================================== */
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        bottom: 2rem !important;
-        right: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    /* Hide on very tiny screens so it doesn't overlap text content */
-    .ss-go-top {
-        display: none !important;
-    }
-}
-
-/* ------------------------------------------------------------------- 
- * responsive:
- * footer
- * ------------------------------------------------------------------- */
-@media screen and (max-width: 1600px) {
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) - var(--vspace-0_25));
-        right : 0;
-    }
-
-    .ss-go-top span {
-        display: none;
-    }
-
-    .ss-go-top a {
-        margin: 0;
-        height: var(--vspace-1_5);
-        width : var(--vspace-1_5);
-    }
-
-    .ss-go-top svg {
-        height: calc(0.25 * var(--space));
-        width : calc(0.25 * var(--space));
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .ss-copyright {
-        margin-top: var(--vspace-0_5);
-    }
-
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) + var(--vspace-0_75));
-        right : calc(var(--gutter) - 1.2rem);
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .s-footer__about>* {
-        width: 100%;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .ss-copyright span {
-        display: block;
-    }
-
-    .ss-copyright span::after {
-        display: none;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2 - var(--vspace-0_25));
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        right: calc(var(--vspace-0_25) * -1);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .ss-go-top {
-        right: -2rem;
-    }
-}
-
-/* REFACTORED CSS for INTRO
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-
-/* ====================================================================
- * # INTRO2 - CUSTOM PORTFOLIO ENGINE
- * ==================================================================== */
-/*.s-intro2 {
-    --content-padding-top   : max(10rem, 10vh);
-    --content-padding-bottom: 8rem;
-    --content-min-height    : calc(var(--vspace-1) * 27);
-    z-index                 : 2;
-    background-color        : var(--color-gray-10);
-    width                   : 100%;
-    height                  : max(var(--content-min-height), 100vh);
-    overflow                : hidden;
-    position                : relative;
-}*/
-
-/* ## intro2 content */
-.s-intro2__content {
-    z-index       : 2;
-    align-items   : flex-end;
-    height        : 100%;
-    padding-top   : var(--content-padding-top);
-    padding-bottom: var(--content-padding-bottom);
-    position      : relative;
-}
-
-.s-intro2__content-text {
-    z-index    : 2;
-    grid-column: 1/span 8;
-    margin-top : var(--vspace-1);
-}
-
-.s-intro2__content-pretitle {
-    font-weight  : 600;
-    margin-bottom: var(--vspace-0_125);
-    color        : var(--color-1);
-}
-
-.s-intro2__content-title {
-    font-size     : clamp(3.8rem, 4.8vw, 8.8rem);
-    line-height   : 1.045;
-    letter-spacing: -0.025em;
-    margin-top    : 0;
-    margin-bottom : var(--vspace-1_25);
-}
-
-.s-intro2__content-btns {
-    --color-btn           : var(--color-text-dark);
-    --color-btn-text      : var(--color-white);
-    --color-btn-hover     : var(--color-1);
-    --color-btn-hover-text: var(--color-white);
-    margin-top            : var(--vspace-2);
-}
-
-.s-intro2__content-btns .btn {
-    margin-right: var(--vspace-0_375);
-}
-
-.s-intro2__content-btns .btn:last-child {
-    margin-right: 0;
-}
-
-.s-intro2__content-media {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-.s-intro2__content-media::before {
-    display       : block;
-    content       : "";
-    position      : absolute;
-    top           : 0;
-    left          : 0;
-    right         : 0;
-    bottom        : 0;
-    width         : 100%;
-    height        : 100%;
-    background    : rgba(0, 0, 0, 0);
-    pointer-events: none;
-}
-
-.s-intro2__content-media::after {
-    display       : block;
-    content       : "";
-    position      : absolute;
-    top           : 0;
-    left          : 0;
-    right         : 0;
-    bottom        : 0;
-    width         : 100%;
-    height        : 100%;
-    background    : linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    opacity       : 0.3;
-}
-
-.s-intro2__content-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* ## intro2 btn cv download */
-.s-intro2__btn-download {
-    --color-btn-stroke           : white;
-    --color-btn-stroke-text      : white;
-    --color-btn-stroke-hover     : white;
-    --color-btn-stroke-hover-text: var(--color-text-dark);
-    --hline-width                : min(16rem, 8vw);
-    z-index                      : 2;
-    position                     : absolute;
-    bottom                       : 4rem;
-    right                        : 10%;
-}
-
-.s-intro2__btn-download .btn--stroke {
-    position: relative;
-}
-
-.s-intro2__btn-download .btn--stroke::before {
-    content         : "";
-    display         : block;
-    height          : 2px;
-    width           : var(--hline-width);
-    background-color: white;
-    position        : absolute;
-    top             : calc(50% - 2px);
-    left            : calc(var(--hline-width) * -1);
-}
-
-/* ====================================================================
- * # MASTER UNIFIED SIDEBAR DOCK (LOCKED IN UNISON ON RESIZE)
- * ==================================================================== */
-.s-intro2__sidebar-dock {
-    z-index         : 9999 !important;
-    position        : fixed !important;
-    display         : flex !important;
-    flex-direction  : column !important;
-    align-items     : center !important;
-    justify-content : center !important;
-    left            : auto !important;
-    
-    /* Center it vertically on the screen layout baseline */
-    top             : 50vh !important;
-    transform       : translateY(-50%) !important; 
-    
-    /* Uniform horizontal baseline track */
-    right           : 2rem !important; 
-    width           : 5rem !important; /* Forces a uniform container width */
-}
-
-/* Strips out old absolute positions from individual items */
-.s-intro2__sidebar-dock .ss-go-top2,
-.s-intro2__sidebar-dock .s-intro2__social,
-.s-intro2__sidebar-dock .s-intro2__scroll-down {
-    position        : relative !important;
-    top             : auto !important;
-    bottom          : auto !important;
-    left            : auto !important;
-    right           : auto !important;
-    margin          : 0 0 2rem 0 !important; /* Uniform gap between the three main elements */
-}
-
-.s-intro2__sidebar-dock .s-intro2__scroll-down {
-    margin-bottom   : 0 !important; /* Removes margin on the bottom element */
-}
-
-/* ## intro2 social formatting inside dock */
-.s-intro2__social {
-    display         : flex !important;
-    flex-direction  : column !important;
-    align-items     : center !important;
-    padding         : 0 !important;
-    list-style      : none !important;
-}
-
-.s-intro2__social li {
-    display       : block !important;
-    padding-right : 0 !important; 
-    margin-right  : 0 !important;
-    margin-bottom : 1.5rem !important;
-}
-
-.s-intro2__social li:last-child {
-    margin-bottom : 0 !important;
-}
-
-.s-intro2__social svg {
-    height: var(--vspace-0_75);
-    width : var(--vspace-0_75);
-}
-
-.s-intro2__social svg path,
-.s-intro2__social svg circle {
-    fill: rgb(255, 255, 255);
-}
-
-/* ## intro2 scroll down formatting inside dock */
-.s-intro2__scroll-down {
-    display         : flex !important;
-    flex-direction  : column !important;
-    align-items     : center !important;
-}
-
-.s-intro2__scroll-down::before {
-    display         : none !important; /* Deletes legacy vertical background lines */
-}
-
-.s-intro2__scroll-down a {
-    display    : inline-flex;
-    align-items: center;
-    color      : var(--color-3);
-}
-
-.s-intro2__scroll-down span {
-    display    : block;
-    font-family: var(--font-1);
-    font-size  : var(--text-size);
-    font-weight: 300;
-    line-height: var(--vspace-2);
-}
-
-.s-intro2__scroll-down .scroll-icon {
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    height         : 4.5rem;
-    width          : 4.5rem;
-    border-radius  : 50%;
-    border         : 2px solid white;
-    background     : rgba(0, 0, 0, 0.2);
+    background     : RGBA(0, 0, 0, 0.2);
 }
 
 .s-intro2__scroll-down svg {
-    height: 1.8rem !important;
-    width : 1.8rem !important; 
+    height: 16px!important;
+    width : 16px!important;
 }
 
 .s-intro2__scroll-down svg path {
-    fill: white !important;
+    fill: white!important;
 }
-
-/* ## intro2 go top formatting inside dock */
-.ss-go-top2 {
-    display         : flex !important;
-    flex-direction  : column !important; 
-    align-items     : center !important;
-    writing-mode    : vertical-rl !important; 
-}
-
-.ss-go-top2 span {
-    display       : block !important;
-    font-size     : 1.1rem;
-    font-weight   : 300;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color         : var(--color-gray-15);
-    margin-bottom : 1.5rem !important;
-}
-
-.ss-go-top2 a {
-    display        : flex !important;
-    align-items    : center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
-    border         : none !important;
-    height         : 4.5rem !important; 
-    width          : 4.5rem !important; 
-    border-radius  : 50% !important;
-    border         : 2px solid white !important;
-    background     : rgba(0, 0, 0, 0.2) !important; 
-}
-
-.ss-go-top2 svg {
-    height: 1.8rem !important; 
-    width : 1.8rem !important; 
-    transform: rotate(-90deg) !important; 
-}
-
-.ss-go-top2 svg path {
-    fill: white !important;
-}
-
-/* ====================================================================
- * # UNIFIED RESPONSIVE SIDEBAR BREAKPOINTS
- * ==================================================================== */
-@media screen and (max-width: 1024px) {
-    .s-intro2__sidebar-dock {
-        right: 1.5rem !important; /* Moves the entire group safely together */
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .s-intro2__sidebar-dock {
-        right: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    /* Hides just the scroll icon on small phones; top and socials stay perfectly centered */
-    .s-intro2__sidebar-dock .s-intro2__scroll-down {
-        display: none !important;
-    }
-}
-
-/* for .canva section */
-.canva-stack2 {
+/*for .canva section
+=========================
+=========================
+*/
+.canva-stack {
     position: relative !important;
     width: 100%;
-    height: auto !important; /* Changed from 100% to auto so Pic-Time embed expands natively */
-    overflow: visible !important; /* Changed from hidden so gallery displays cleanly below fold */
+    height: 100% !important;
+    overflow: hidden;
 }
-
-/* ====================================================================
- * # INTRO2 TRANSITIONS (UPDATED FOR UNIFIED DOCK)
- * ==================================================================== */
+/* ## intro2 transitions */
 .s-header__inner,
 .s-intro2__content-media,
 .s-intro2__content-title,
 .s-intro2__content-pretitle,
 .s-intro2__content-btns,
 .s-intro2__btn-download,
-.s-intro2__sidebar-dock {
+.s-intro2__social,
+.s-intro2__scroll-down {
     transition-timing-function: cubic-bezier(0.28, 0.12, 0.22, 1);
     transition-duration       : 0.6s;
     transition-delay          : 0s;
@@ -5330,7 +4837,8 @@ td:last-child {
 
 .s-header__inner,
 .s-intro2__content-media,
-.s-intro2__sidebar-dock {
+.s-intro2__social,
+.s-intro2__scroll-down {
     transition-property: opacity;
 }
 
@@ -5348,10 +4856,12 @@ td:last-child {
 
 .no-js .s-header__inner,
 .no-js .s-intro2__content-media,
-.no-js .s-intro2__sidebar-dock,
+.no-js .s-intro2__social,
+.no-js .s-intro2__scroll-down,
 .ss-show .s-header__inner,
 .ss-show .s-intro2__content-media,
-.ss-show .s-intro2__sidebar-dock {
+.ss-show .s-intro2__social,
+.ss-show .s-intro2__scroll-down {
     opacity: 1;
 }
 
@@ -5396,7 +4906,225 @@ td:last-child {
     transition-delay: 0.75s;
 }
 
-.no-js .s-intro2__sidebar-dock,
-.ss-show .s-intro2__sidebar-dock {
-    transition-delay: 1.2s; /* Fades the entire dock structure in at once */
+.no-js .s-intro2__social,
+.no-js .s-intro2__scroll-down,
+.ss-show .s-intro2__social,
+.ss-show .s-intro2__scroll-down {
+    transition-delay: 1.2s;
+}
+
+/* ## intro2 responsive media steps */
+@media screen and (max-width: 1400px) {
+    .s-intro2__content-pretitle {
+        font-size  : var(--text-sm);
+        line-height: var(--vspace-0_75);
+    }
+
+    .s-intro2__social {
+        right: calc(var(--gutter) + var(--vspace-0_5));
+    }
+
+    .s-intro2__scroll-down {
+        right: var(--gutter);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .s-intro2__content-btns {
+        padding-right: min(2rem, 2vw);
+    }
+
+    .s-intro2__content-btns .btn {
+        width       : 100%;
+        margin-right: 0;
+    }
+
+    .s-intro2__btn-download {
+        --hline-width: min(4rem, 4vw);
+        left         : calc(50% + var(--hline-width) - 2px);
+        right        : auto;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .s-intro2 {
+        --content-padding-top   : max(12rem, 16vh);
+        --content-padding-bottom: 9.6rem;
+    }
+
+    .s-intro2__content {
+        padding-bottom: var(--vspace-0_75);
+        align-items   : center;
+    }
+
+    .s-intro2__content-text {
+        grid-column: 1/-1;
+        text-align : center;
+        max-width  : 70vw;
+        margin     : 0 auto;
+    }
+
+    .s-intro2__content-title {
+        font-size: clamp(4.2rem, 8.2vw, 8.8rem);
+        color    : white;
+    }
+
+    .s-intro2__content-title br {
+        display: none;
+    }
+
+    .s-intro2__content-btns {
+        --color-btn                  : white;
+        --color-btn-text             : var(--color-text-dark);
+        --color-btn-hover            : var(--color-1);
+        --color-btn-hover-text       : white;
+        --color-btn-stroke           : white;
+        --color-btn-stroke-text      : white;
+        --color-btn-stroke-hover     : white;
+        --color-btn-stroke-hover-text: var(--color-text-dark);
+        padding-right                : 0;
+        max-width                    : 400px;
+        margin                       : var(--vspace-1) auto 0;
+    }
+
+    .s-intro2__content-btns .btn {
+        margin-right: 0;
+    }
+
+    .s-intro2__content-media {
+        left: 0;
+    }
+
+    .s-intro2__content-media::before {
+        opacity: 0.2;
+    }
+
+    .s-intro2__social {
+        right: calc(2.4rem + var(--vspace-0_375));
+    }
+
+    .s-intro2__social svg {
+        height: var(--vspace-0_625);
+        width : var(--vspace-0_625);
+    }
+
+       .s-intro2__btn-download {
+        --hline-width: 8vw;
+        left         : var(--hline-width);
+        bottom       : var(--vspace-0_75);
+    }
+
+    .s-intro2__btn-download .btn--stroke {
+        --btn-height: var(--vspace-1_25);
+        background  : transparent !important;
+        border      : 2px solid transparent;
+        padding     : 0 2.4rem;
+    }
+
+    .s-intro2__btn-download .btn--stroke::before {
+        height : 1px;
+        opacity: 0.5;
+        top    : calc(50% - 1px);
+    }
+
+    .s-intro2__btn-download .btn--stroke::after {
+        content         : "";
+        display         : block;
+        background-color: var(--color-1);
+        height          : 2px;
+        width           : 0;
+        bottom          : 0;
+        left            : 2rem;
+        transition      : width 0.2s ease-in-out;
+    }
+
+    .s-intro2__btn-download .btn--stroke:hover {
+        color: white;
+    }
+
+    .s-intro2__btn-download .btn--stroke:hover::after {
+        width: 100%;
+    }
+
+    .s-intro2__scroll-down {
+        bottom: var(--vspace-1);
+        right : 2.4rem;
+    }
+
+    .s-intro2__scroll-down .scroll-icon {
+        height: var(--vspace-1_5);
+        width : var(--vspace-1_5);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .s-intro2__content-media img {
+        object-position: center 5% !important; 
+    }
+
+    .s-intro2, 
+    .s-intro2__content {
+        min-height: auto !important; 
+        height: auto !important;
+        aspect-ratio: 4 / 5 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding-top: 6.7rem !important;
+    }
+    
+    .s-intro2__content-btns {
+        margin-top: 5rem !important;
+        position: relative !important;
+        z-index: 5 !important;
+    }
+
+    .s-intro2__scroll-down {
+        bottom: 12.3rem !important;
+        right: 2.1rem !important;
+    } 
+
+    .s-intro2__btn-download {
+        bottom: 3.5rem !important; 
+    }
+    
+    .s-intro2__social {
+        bottom: 2.5rem !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .s-intro2 {
+        --content-padding-top: max(10rem, 10vh);
+    }
+
+    .s-intro2__content-media img {
+        background-position: center 5% !important;
+        background-size: cover !important;
+        height: auto !important;
+        aspect-ratio: 2 / 3 !important;
+    }
+
+    .s-intro2, 
+    .s-intro2__content {
+        aspect-ratio: 2 / 3 !important; 
+    }
+
+    .s-intro2__content-btns {
+        bottom: 3rem !important;
+    }
+
+    .s-intro2__scroll-down {
+        bottom: 1rem !important;
+        display: none !important;
+    } 
+
+    .s-intro2__btn-download {
+        bottom: .05rem !important;
+    }
+
+    .s-intro2__social {
+        margin-top:  1rem !important;
+        right: 2rem !important;
+    }
 }

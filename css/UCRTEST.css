@@ -3451,7 +3451,7 @@ td:last-child {
 }
 
 .s-intro__content-media {
-     position: absolute;
+    position: absolute;
     inset: 0;
     overflow: hidden;
 }
@@ -3483,15 +3483,13 @@ td:last-child {
     background    : linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     opacity       : 0.3;
-    
 }
 
 .s-intro__content-media img {
-  width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    
 }
 
 /* --------------------------------------------------------------------
@@ -3525,21 +3523,63 @@ td:last-child {
     left            : calc(var(--hline-width) * -1);
 }
 
+/* ====================================================================
+ * # MASTER UNIFIED SIDEBAR DOCK 
+ * ==================================================================== */
+.s-intro__sidebar-dock {
+    z-index         : 9999 !important;
+    position        : fixed !important;
+    display         : flex !important;
+    flex-direction  : column !important;
+    align-items     : center !important;
+    justify-content : center !important;
+    left            : auto !important;
+    
+    /* Perfect vertical center on all displays */
+    top             : 50vh !important;
+    transform       : translateY(-50%) !important; 
+    
+    /* Your unified master horizontal line tracking */
+    right           : 2rem !important; 
+    width           : 5rem !important; 
+}
+
+/* Forces the child elements to drop their old positions and behave inside the dock */
+.s-intro__sidebar-dock .ss-go-top,
+.s-intro__sidebar-dock .s-intro__social,
+.s-intro__sidebar-dock .s-intro__scroll-down {
+    position        : relative !important;
+    top             : auto !important;
+    bottom          : auto !important;
+    left            : auto !important;
+    right           : auto !important;
+    margin          : 0 0 2rem 0 !important; /* The vertical gap spacing between them */
+}
+
+.s-intro__sidebar-dock .s-intro__scroll-down {
+    margin-bottom   : 0 !important; /* Clear spacer for the lowest item */
+}
+
 /* --------------------------------------------------------------------
- * ## intro social
+ * ## intro social (Inside Dock)
  * -------------------------------------------------------------------- */
 .s-intro__social {
-    z-index : 2;
-    display : block;
-    position: absolute;
-    bottom  : calc(var(--vspace-2) + var(--vspace-1_75) + 12rem);
-    right   : calc(var(--gutter) + var(--vspace-1_25));
+    display         : flex !important;
+    flex-direction  : column !important;
+    align-items     : center !important;
+    padding         : 0 !important;
+    list-style      : none !important;
 }
 
 .s-intro__social li {
-    padding-right: 0;
-    margin-right : 0;
-    margin-bottom: var(--vspace-0_625);
+    display       : block !important;
+    padding-right : 0 !important; 
+    margin-right  : 0 !important;
+    margin-bottom : 1.5rem !important;
+}
+
+.s-intro__social li:last-child {
+    margin-bottom : 0 !important;
 }
 
 .s-intro__social svg {
@@ -3553,36 +3593,16 @@ td:last-child {
 }
 
 /* --------------------------------------------------------------------
- * ## intro scroll down
+ * ## intro scroll down (Inside Dock)
  * -------------------------------------------------------------------- */
 .s-intro__scroll-down {
-  --width-label   : 11rem;
-    z-index         : 997 !important; /* Floats safely over the Pic-Time gallery layers */
-    display         : flex;
-    align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 1) !important; 
-    right           :2.5rem !important; 
-
-    /* Keeps your cool vertical rotated design layout intact */
-    
-    
+    display         : flex !important;
+    flex-direction  : column !important;
+    align-items     : center !important;
 }
 
-
 .s-intro__scroll-down::before {
-    content         : "";
-    display         : block;
-    height          : var(--line-length);
-    width           : 1px;
-    background-color: rgba(255, 255, 255, 0.5);
-    position        : absolute;
-    top             : calc(var(--line-length) * -1 - var(--vspace-1));
-    left            : 50%;
+    display         : none !important; /* Removed legacy vertical line clash */
 }
 
 .s-intro__scroll-down a {
@@ -3607,16 +3627,62 @@ td:last-child {
     width          : 4.5rem;
     border-radius  : 50%;
     border         : 2px solid white;
+    background     : rgba(0, 0, 0, 0.2);
 }
 
 .s-intro__scroll-down svg {
-    height: calc(0.3 * var(--space));
-    width : calc(0.3 * var(--space));
+    height: 1.8rem !important;
+    width : 1.8rem !important; 
 }
 
 .s-intro__scroll-down svg path {
-    fill: white;
+    fill: white !important;
 }
+
+/* --------------------------------------------------------------------
+ * ## intro go top (Inside Dock)
+ * -------------------------------------------------------------------- */
+.ss-go-top {
+    display         : flex !important;
+    flex-direction  : column !important; 
+    align-items     : center !important;
+    writing-mode    : vertical-rl !important; 
+}
+
+.ss-go-top span {
+    display       : block !important;
+    font-size     : 1.1rem;
+    font-weight   : 300;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color         : var(--color-gray-15);
+    margin-bottom : 1.5rem !important;
+}
+
+.ss-go-top a {
+    display        : flex !important;
+    align-items    : center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    border         : none !important;
+    height         : 4.5rem !important; 
+    width          : 4.5rem !important; 
+    border-radius  : 50% !important;
+    border         : 2px solid white !important;
+    background     : rgba(0, 0, 0, 0.2) !important; 
+}
+
+/* Rotates only the inner arrow, not the layout boundaries */
+.ss-go-top svg {
+    height: 1.8rem !important; 
+    width : 1.8rem !important; 
+    transform: rotate(-90deg) !important; 
+}
+
+.ss-go-top svg path {
+    fill: white !important;
+}
+
 
 /* --------------------------------------------------------------------
  * ## intro transitions
@@ -3627,8 +3693,7 @@ td:last-child {
 .s-intro__content-pretitle,
 .s-intro__content-btns,
 .s-intro__btn-download,
-.s-intro__social,
-.s-intro__scroll-down {
+.s-intro__sidebar-dock {
     transition-timing-function: cubic-bezier(0.28, 0.12, 0.22, 1);
     transition-duration       : 0.6s;
     transition-delay          : 0s;
@@ -3637,8 +3702,7 @@ td:last-child {
 
 .s-header__inner,
 .s-intro__content-media,
-.s-intro__social,
-.s-intro__scroll-down {
+.s-intro__sidebar-dock {
     transition-property: opacity;
 }
 
@@ -3655,20 +3719,18 @@ td:last-child {
 
 .s-intro__btn-download {
     transition-property: opacity, transform;
-   position: absolute;
-    bottom: 4rem; /* or clamp */
+    position: absolute;
+    bottom: 4rem; 
     left: 50%;
     transform: translateX(-50%);
 }
 
 .no-js .s-header__inner,
 .no-js .s-intro__content-media,
-.no-js .s-intro__social,
-.no-js .s-intro__scroll-down,
+.no-js .s-intro__sidebar-dock,
 .ss-show .s-header__inner,
 .ss-show .s-intro__content-media,
-.ss-show .s-intro__social,
-.ss-show .s-intro__scroll-down {
+.ss-show .s-intro__sidebar-dock {
     opacity: 1;
 }
 
@@ -3717,11 +3779,9 @@ td:last-child {
     transition-delay: 0.75s;
 }
 
-.no-js .s-intro__social,
-.no-js .s-intro__scroll-down,
-.ss-show .s-intro__social,
-.ss-show .s-intro__scroll-down {
-    transition-delay: 1.2s;
+.no-js .s-intro__sidebar-dock,
+.ss-show .s-intro__sidebar-dock {
+    transition-delay: 1.2s; /* Fades the entire dock structure in at once */
 }
 
 .no-js .s-header__inner,
@@ -3733,30 +3793,15 @@ td:last-child {
  * responsive:
  * intro
  * ------------------------------------------------------------------- */
-/** new media screen for wide desktop**/
-@media screen and (min-width: 1601px) {
-     
-}
+@media screen and (min-width: 1601px) {}
 
-@media screen and (max-width: 1600px) {
-    
-}
+@media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1400px) {
     .s-intro__content-pretitle {
         font-size  : var(--text-sm);
         line-height: var(--vspace-0_75);
     }
-
-    .s-intro__social {
-        right: calc(var(--gutter) + var(--vspace-0_5));
-    }
-
-    .s-intro__scroll-down {
-        right: var(--gutter);
-    }
-
-    
 }
 
 @media screen and (max-width: 1200px) {
@@ -3773,12 +3818,9 @@ td:last-child {
         --hline-width: min(4rem, 4vw);
         left         : calc(50% + var(--hline-width) - 2px);
     }
-    
-
 }
 
 @media screen and (max-width: 1080px) {
-    
     .s-intro {
         --content-padding-top   : max(12rem, 16vh);
         --content-padding-bottom: 9.6rem;
@@ -3831,15 +3873,6 @@ td:last-child {
         opacity: 0.2;
     }
 
-    .s-intro__social {
-        right: calc(2.4rem + var(--vspace-0_375));
-    }
-
-    .s-intro__social svg {
-        height: var(--vspace-0_625);
-        width : var(--vspace-0_625);
-    }
-
     .s-intro__btn-download {
         --hline-width: 8vw;
         left         : var(--hline-width);
@@ -3877,39 +3910,16 @@ td:last-child {
     .s-intro__btn-download .btn--stroke:hover::after {
         width: 100%;
     }
-
-    .s-intro__scroll-down {
-        bottom: var(--vspace-1);
-        right : 2.4rem;
-    }
-
-    .s-intro__scroll-down .scroll-icon {
-        height: var(--vspace-1_5);
-        width : var(--vspace-1_5);
-    }
     
+    /* DOCK RESPONSIVE ADJUSTMENT */
+    .s-intro__sidebar-dock {
+        right: 1.5rem !important; 
+    }
 }
 
 @media screen and (max-width: 600px) {
-  /**  .s-intro__content-text {
-        max-width: 80vw;
-    }
-
-    .s-intro__social {
-        display: none;
-    }
-
-    .s-intro__scroll-down {
-        bottom: var(--vspace-1_25);
-    }
-
-    .s-intro__scroll-down::before {
-        display: none;
-    }
     /**These were added as adjustments to the hero photo being cropped**/
-   .s-intro__content-media img {
-
-    
+    .s-intro__content-media img {
         object-position: center 5% !important; 
     }
 
@@ -3924,33 +3934,28 @@ td:last-child {
         padding-top: 6.7rem !important; /* Adjust this to move your name up/down */
     }
     
-   .s-intro__content-btns {
+    .s-intro__content-btns {
         margin-top: 5rem !important;
         position: relative !important;
         z-index: 5 !important;
     }
 
-    .s-intro__scroll-down {
-            bottom: 12.3rem !important;
-            right: 2.1rem !important;
-    } 
-    
     .s-intro__btn-download {
         bottom: 3.5rem !important; 
     }
     
-    .s-intro__social {
-        bottom: 2.5rem !important;
+    /* DOCK RESPONSIVE ADJUSTMENT */
+    .s-intro__sidebar-dock {
+        right: 1rem !important;
     }
-
 }
 /**End adjustments**/
-
 
 @media screen and (max-width: 400px) {
     .s-intro {
         --content-padding-top: max(10rem, 10vh);
     }
+    
     /**Adjustments for crop on mobile**/
     .s-intro__content-media img {
         background-position: center 5% !important;
@@ -3962,34 +3967,22 @@ td:last-child {
     .s-intro, 
     .s-intro__content {
         aspect-ratio: 2 / 3 !important; 
-    
     }
 
     .s-intro__content-btns {
         bottom: 3rem !important;
     }
 
-
-    .s-intro__scroll-down {
-        bottom: 1rem !important;
-        display: none !important;
-        
-    } 
-
-    
-
     .s-intro__btn-download {
         bottom: .05rem !important;
-        
     }
 
-    .s-intro__social {
-        margin-top:  1rem !important;
-        right: 2rem !important;
+    /* DOCK RESPONSIVE ADJUSTMENT */
+    .s-intro__sidebar-dock .s-intro__scroll-down {
+        display: none !important;
     }
     /** end mobile adjustments**/
 }
-
 
 
 /* ===================================================================
@@ -4461,529 +4454,7 @@ td:last-child {
 /* ====================================================================
  * # GLOBAL BACK-TO-TOP ENGINE (.ss-go-top)
  * ==================================================================== */
-.ss-go-top {
-    --width-label   : 11rem;
-    z-index         : 9999 !important; /* Floats safely over the Pic-Time gallery layers */
-    display         : flex;
-    align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 15) !important; 
-    right           :-2rem !important; 
 
-    /* Keeps your cool vertical rotated design layout intact */
-    transform       : rotate(-90deg);
-    transform-origin: left bottom;
-}
-
-.ss-go-top span {
-    display       : block;
-    width         : var(--width-label);
-    font-size     : 1.1rem;
-    font-weight   : 300;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color         : var(--color-gray-15);
-    position      : relative;
-}
-
-.ss-go-top a {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    text-decoration: none;
-    border         : none;
-    height         : var(--vspace-1_75);
-    width          : var(--vspace-1_75);
-    border-radius  : 50%;
-    border         : 2px solid white;
-    margin-right   : var(--vspace-0_75);
-    position       : relative;
-    background     : rgba(0, 0, 0, 0.2); /* Subtle backdrop backdrop so it's readable over white photos */
-}
-
-.ss-go-top svg {
-    height: calc(0.3 * var(--space));
-    width : calc(0.3 * var(--space));
-}
-
-.ss-go-top svg path {
-    fill: white;
-}
-
-/* ====================================================================
- * # RESPONSIVE BREAKPOINTS (MOBILE OVERRIDES)
- * ==================================================================== */
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        bottom: 2rem !important;
-        right: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    /* Hide on very tiny screens so it doesn't overlap text content */
-    .ss-go-top {
-        display: none !important;
-    }
-}
-
-/* ------------------------------------------------------------------- 
- * responsive:
- * footer
- * ------------------------------------------------------------------- */
-@media screen and (max-width: 1600px) {
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) - var(--vspace-0_25));
-        right : 0;
-    }
-
-    .ss-go-top span {
-        display: none;
-    }
-
-    .ss-go-top a {
-        margin: 0;
-        height: var(--vspace-1_5);
-        width : var(--vspace-1_5);
-    }
-
-    .ss-go-top svg {
-        height: calc(0.25 * var(--space));
-        width : calc(0.25 * var(--space));
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .ss-copyright {
-        margin-top: var(--vspace-0_5);
-    }
-
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) + var(--vspace-0_75));
-        right : calc(var(--gutter) - 1.2rem);
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .s-footer__about>* {
-        width: 100%;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .ss-copyright span {
-        display: block;
-    }
-
-    .ss-copyright span::after {
-        display: none;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2 - var(--vspace-0_25));
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        right: calc(var(--vspace-0_25) * -1);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .ss-go-top {
-        right: -2rem;
-    }
-}
-
-/* REFACTORED CSS for INTRO
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-==============================================================================================
-
-/* ====================================================================
- * # INTRO2 - CUSTOM PORTFOLIO ENGINE
- * ==================================================================== */
-/*.s-intro2 {
-    --content-padding-top   : max(10rem, 10vh);
-    --content-padding-bottom: 8rem;
-    --content-min-height    : calc(var(--vspace-1) * 27);
-    z-index                 : 2;
-    background-color        : var(--color-gray-10);
-    width                   : 100%;
-    height                  : max(var(--content-min-height), 100vh);
-    overflow                : hidden;
-    position                : relative;
-}*/
-
-/* ## intro2 content */
-.s-intro2__content {
-    z-index       : 2;
-    align-items   : flex-end;
-    height        : 100%;
-    padding-top   : var(--content-padding-top);
-    padding-bottom: var(--content-padding-bottom);
-    position      : relative;
-}
-
-.s-intro2__content-text {
-    z-index    : 2;
-    grid-column: 1/span 8;
-    margin-top : var(--vspace-1);
-}
-
-.s-intro2__content-pretitle {
-    font-weight  : 600;
-    margin-bottom: var(--vspace-0_125);
-    color        : var(--color-1);
-}
-
-.s-intro2__content-title {
-    font-size     : clamp(3.8rem, 4.8vw, 8.8rem);
-    line-height   : 1.045;
-    letter-spacing: -0.025em;
-    margin-top    : 0;
-    margin-bottom : var(--vspace-1_25);
-}
-
-.s-intro2__content-btns {
-    --color-btn           : var(--color-text-dark);
-    --color-btn-text      : var(--color-white);
-    --color-btn-hover     : var(--color-1);
-    --color-btn-hover-text: var(--color-white);
-    margin-top            : var(--vspace-2);
-}
-
-.s-intro2__content-btns .btn {
-    margin-right: var(--vspace-0_375);
-}
-
-.s-intro2__content-btns .btn:last-child {
-    margin-right: 0;
-}
-
-.s-intro2__content-media {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-.s-intro2__content-media::before {
-    display       : block;
-    content       : "";
-    position      : absolute;
-    top           : 0;
-    left          : 0;
-    right         : 0;
-    bottom        : 0;
-    width         : 100%;
-    height        : 100%;
-    background    : rgba(0, 0, 0, 0);
-    pointer-events: none;
-}
-
-.s-intro2__content-media::after {
-    display       : block;
-    content       : "";
-    position      : absolute;
-    top           : 0;
-    left          : 0;
-    right         : 0;
-    bottom        : 0;
-    width         : 100%;
-    height        : 100%;
-    background    : linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    opacity       : 0.3;
-}
-
-.s-intro2__content-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* ## intro2 btn cv download */
-.s-intro2__btn-download {
-    --color-btn-stroke           : white;
-    --color-btn-stroke-text      : white;
-    --color-btn-stroke-hover     : white;
-    --color-btn-stroke-hover-text: var(--color-text-dark);
-    --hline-width                : min(16rem, 8vw);
-    z-index                      : 2;
-    position                     : absolute;
-    bottom                       : 4rem;
-    right                        : 10%;
-}
-
-.s-intro2__btn-download .btn--stroke {
-    position: relative;
-}
-
-.s-intro2__btn-download .btn--stroke::before {
-    content         : "";
-    display         : block;
-    height          : 2px;
-    width           : var(--hline-width);
-    background-color: white;
-    position        : absolute;
-    top             : calc(50% - 2px);
-    left            : calc(var(--hline-width) * -1);
-}
-
-/* ## intro2 social */
-.s-intro2__social {
-    --width-label   : 11rem;
-    z-index         : 997 !important; /* Raised to match standard overlay hierarchy */
-    display         : flex !important;
-    flex-direction  : column !important;
-    align-items     : center !important;
-    position        : fixed !important; 
-    
-    /* TARGETED LOCATION COORDINATES */
-   top        : calc(50vh + 2.5rem) !important; 
-   bottom     : auto !important;
-    right           : calc(var(--gutter) + var(--vspace-1_25) * -.1) !important;
-}
-
-.s-intro2__social li {
-    display       : block !important;
-    padding-right : 12px;
-    margin-right  : 0;
-    margin-bottom : 1.5rem !important; /* Added visual spacing gap for vertical display alignment */
-}
-
-.s-intro2__social svg {
-    height: var(--vspace-0_75);
-    width : var(--vspace-0_75);
-}
-
-.s-intro2__social svg path,
-.s-intro2__social svg circle {
-    fill: rgb(255, 255, 255);
-}
-
-/* ## intro2 scroll down */
-.s-intro2__scroll-down {
-    --width-label   : 11rem;
-    z-index         : 9999 !important; 
-    display         : flex;
-    align-items     : center;
-    position        : fixed !important; 
-    
-    /* TARGETED LOCATION COORDINATES */
-    top             : calc(50vh + 8rem) !important;
-    bottom          : auto !important; 
-    right           : 1.45rem !important; /* Switched to matching right anchor tracking context */
-}
-
-.s-intro2__scroll-down::before {
-    content         : "";
-    display         : block;
-    height          : var(--line-length);
-    width           : 1px;
-    background-color: rgba(255, 255, 255, 0.5);
-    position        : absolute !important;
-    top             : calc(var(--line-length) * -1 - var(--vspace-1)) !important;
-    left            : 50%;
-}
-
-.s-intro2__scroll-down a {
-    display    : inline-flex;
-    align-items: center;
-    color      : var(--color-3);
-}
-
-.s-intro2__scroll-down span {
-    display    : block;
-    font-family: var(--font-1);
-    font-size  : var(--text-size);
-    font-weight: 300;
-    line-height: var(--vspace-2);
-}
-
-.s-intro2__scroll-down .scroll-icon {
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    height         : 4.5rem; /* Matched 1:1 with go-top outer boundary dimensional box */
-    width          : 4.5rem;
-    border-radius  : 50%;
-    border         : 2px solid white;
-    background     : rgba(0, 0, 0, 0.2);
-}
-
-.s-intro2__scroll-down svg {
-    height: 1.8rem !important; /* Matched symbol scale sizing anchor */
-    width : 1.8rem !important; 
-}
-
-.s-intro2__scroll-down svg path {
-    fill: white !important;
-}
-
-/* ====================================================================
- * # GLOBAL BACK-TO-TOP ENGINE (.ss-go-top2)
- * ==================================================================== */
-.ss-go-top {
-    --width-label   : 11rem;
-    z-index         : 9999 !important; /* Floats safely over the Pic-Time gallery layers */
-    display         : flex;
-    align-items     : center;
-    
-    /* 1. THE FIX: Lock it to the screen window globally */
-    position        : fixed !important; 
-    
-    /* 2. FLEXIBLE CONTROLS: Tweak these two lines to adjust the screen location */
-    bottom          : calc(var(--vspace-1) * 15) !important; 
-    right           :-2rem !important; 
-
-    /* Keeps your cool vertical rotated design layout intact */
-    transform       : rotate(-90deg);
-    transform-origin: left bottom;
-}
-
-.ss-go-top span {
-    display       : block;
-    width         : var(--width-label);
-    font-size     : 1.1rem;
-    font-weight   : 300;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color         : var(--color-gray-15);
-    position      : relative;
-}
-
-.ss-go-top a {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    text-decoration: none;
-    border         : none;
-    height         : var(--vspace-1_75);
-    width          : var(--vspace-1_75);
-    border-radius  : 50%;
-    border         : 2px solid white;
-    margin-right   : var(--vspace-0_75);
-    position       : relative;
-    background     : rgba(0, 0, 0, 0.2); /* Subtle backdrop backdrop so it's readable over white photos */
-}
-
-.ss-go-top svg {
-    height: calc(0.3 * var(--space));
-    width : calc(0.3 * var(--space));
-}
-
-.ss-go-top svg path {
-    fill: white;
-}
-
-/* ====================================================================
- * # RESPONSIVE BREAKPOINTS (MOBILE OVERRIDES)
- * ==================================================================== */
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        bottom: 2rem !important;
-        right: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    /* Hide on very tiny screens so it doesn't overlap text content */
-    .ss-go-top {
-        display: none !important;
-    }
-}
-
-/* ------------------------------------------------------------------- 
- * responsive:
- * footer
- * ------------------------------------------------------------------- */
-@media screen and (max-width: 1600px) {
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) - var(--vspace-0_25));
-        right : 0;
-    }
-
-    .ss-go-top span {
-        display: none;
-    }
-
-    .ss-go-top a {
-        margin: 0;
-        height: var(--vspace-1_5);
-        width : var(--vspace-1_5);
-    }
-
-    .ss-go-top svg {
-        height: calc(0.25 * var(--space));
-        width : calc(0.25 * var(--space));
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .ss-copyright {
-        margin-top: var(--vspace-0_5);
-    }
-
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) + var(--vspace-0_75));
-        right : calc(var(--gutter) - 1.2rem);
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .s-footer__about>* {
-        width: 100%;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .ss-copyright span {
-        display: block;
-    }
-
-    .ss-copyright span::after {
-        display: none;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2 - var(--vspace-0_25));
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .ss-go-top {
-        right: calc(var(--vspace-0_25) * -1);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .ss-go-top {
-        right: -2rem;
-    }
-}
 
 /* REFACTORED CSS for INTRO
 ==============================================================================================
