@@ -6,3 +6,21 @@
 <priority>1.0</priority>
 </url>
 </urlset>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.trekxstudios.com/index.html</loc>
+<lastmod>2026-06-13</lastmod>
+<priority>.80</priority>
+</url>
+</urlset>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.trekxstudios.com/UCR.html</loc>
+<lastmod>2025-06-13</lastmod>
+<priority>.80</priority>
+</url>
+</urlset>
