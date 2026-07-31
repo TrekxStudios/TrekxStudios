@@ -280,7 +280,9 @@
             }
         }
 
-        const triggers = document.querySelectorAll('.smoothscroll');
+       // const triggers = document.querySelectorAll('.smoothscroll');
+       const triggers = document.querySelectorAll('a.smoothscroll[href^="#"]');
+
         
         const moveTo = new MoveTo({
             tolerance: 0,
