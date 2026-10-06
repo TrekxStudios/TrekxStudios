@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inquiry Received | Trekx Studios</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/UCRTEST.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="canonical" href="https://www.trekxstudios.com/thankyou" />
+
+    <style>
+        /* KEYFRAME PULSE ANIMATION FOR ACTIVE STATUS */
+        @keyframes pulseGlow {
+            0% {
+                opacity: 1;
+                box-shadow: 0 0 6px #00E676;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.35;
+                box-shadow: 0 0 20px #00E676;
+                transform: scale(1.35);
+            }
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 6px #00E676;
+                transform: scale(1);
+            }
+        }
+
+        .pulse-dot {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        /* FULLSCREEN CENTERING LAYOUT */
+        .thankyou-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PROPORTIONAL 4:3 CARD CONTAINER FILLED EQUALLY */
+        .thankyou-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1.5px solid rgba(0, 230, 118, 0.35);
+            border-radius: 18px;
+            padding: 3.5rem 3rem;
+            max-width: 720px;
+            width: 100%;
+            min-height: 540px;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 720px) {
+            .thankyou-card {
+                aspect-ratio: auto;
+                min-height: auto;
+                padding: 2.5rem 1.5rem;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- page wrap
+    ================================================== -->
+    <div id="page" class="s-pagewrap">
+
+        <!-- MINIMAL BRANDING HEADER -->
+        <header class="s-header" style="background: transparent; position: absolute; top: 0; width: 100%;">
+            <div class="row s-header__inner" style="justify-content: center;">
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <h1 class="Trekx" style="font-size: 1.6rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0; font-weight: 800;">Trekx Studios</h1>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CENTERED CONFIRMATION MASS -->
+        <main class="thankyou-wrapper">
+            <div class="thankyou-card">
+                
+                <!-- SUCCESS BADGE -->
+                <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 230, 118, 0.12); border: 1.5px solid rgba(0, 230, 118, 0.4); padding: 10px 24px; border-radius: 50px; margin: 0;">
+                    <span class="pulse-dot" style="height: 12px; width: 12px; background-color: #00E676; border-radius: 50%; display: inline-block;"></span>
+                    <span style="color: #00E676; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">Inquiry Received</span>
+                </div>
+
+                <!-- MAIN HEADLINE -->
+                <h1 style="color: #FFFFFF; font-size: 3.25rem; line-height: 1.05; font-weight: 900; margin: 0; letter-spacing: -0.03em;">
+                    You’re On The List.
+                </h1>
+
+                <!-- SUBTITLE & OFFER LOCK CONFIRMATION -->
+                <p style="color: #E2E8F0; font-size: 1.45rem; line-height: 1.4; margin: 0; font-weight: 500; max-width: 620px;">
+                    Thank you for reaching out! Your date inquiry has been received and your <span style="color: #00E676; font-weight: 800; text-shadow: 0 0 16px rgba(0, 230, 118, 0.4);">$300 October Promotion Credit</span> has been temporarily reserved for your booking.
+                </p>
+
+                <!-- EXPECTATION CALLOUT BOX -->
+                <div style="background: rgba(255, 255, 255, 0.05); border-left: 5px solid #00E676; padding: 1.35rem 1.6rem; text-align: left; border-radius: 0 10px 10px 0; margin: 0; width: 100%; max-width: 620px; box-sizing: border-box;">
+                    <p style="color: #FFFFFF; font-size: 1.2rem; margin: 0; line-height: 1.5; font-weight: 400;">
+                        <strong style="color: #00E676; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; display: block; margin-bottom: 0.35rem; font-weight: 800;">Next Steps:</strong> 
+                        I review every inquiry personally and will be in touch via email within <strong style="color: #FFFFFF; font-weight: 700;">24 to 48 hours</strong> with package details and date confirmation.
+                    </p>
+                </div>
+
+                <!-- RETURN BUTTON -->
+                <a href=" https://trekxstudios.pic-time.com/client/trekx" class="btn btn--primary u-fullwidth" style="margin: 0; background-color: #00E676; color: #000000; border-color: #00E676; font-weight: 800; font-size: 1.2rem; height: 3.8rem; line-height: 3.8rem; max-width: 620px; letter-spacing: 0.03em;">
+                    View Trekx Studios Portfolio 
+                </a>
+
+            </div>
+
+            <!-- FOOTER COPYRIGHT -->
+            <p style="color: #94A3B8; font-size: 0.9rem; margin-top: 1.75rem; margin-bottom: 0; text-align: center; font-weight: 500;">
+                © Copyright Trekx Studios, LLC 2026
+            </p>
+        </main>
+
+    </div>
+
+    <!-- JavaScript
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
