@@ -4,15 +4,20 @@
     <loc>https://www.trekxstudios.com/</loc>
     <lastmod>2026-06-13</lastmod>
     <priority>1.0</priority>
+     <url>
+    <loc>https://www.trekxstudios.com/weddingbooking</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
+  </url>
   </url>
   <url>
     <loc>https://www.trekxstudios.com/ucr</loc>
     <lastmod>2026-06-13</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trekxstudios.com/k1speed</loc>
     <lastmod>2026-06-13</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>
