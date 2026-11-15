@@ -1,341 +1,466 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wedding Films in Pennsylvania &amp; Southern California | Trekx Studios</title>
+<meta name="description" content="Cinematic wedding films in Southeast Pennsylvania and Southern California. Packages starting at $2,400.">
+<link rel="canonical" href="https://www.trekxstudios.com/weddingbooking">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book Your Wedding | Trekx Studios</title>
+<!-- FONTS: swap in your real fonts here (Google Fonts link or @font-face), then set the two --trx-font vars below. -->
 
-    <script>
-        document.documentElement.classList.remove('no-js');
-        document.documentElement.classList.add('js');
-    </script>
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/UCRTEST.css">
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    
-    <link rel="canonical" href="https://www.trekxstudios.com/weddingbooking" />
 <style>
-    /* KEYFRAME PULSE ANIMATION */
-    @keyframes pulseGlow {
-        0% {
-            opacity: 1;
-            box-shadow: 0 0 4px #00E676;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.4;
-            box-shadow: 0 0 16px #00E676;
-            transform: scale(1.25);
-        }
-        100% {
-            opacity: 1;
-            box-shadow: 0 0 4px #00E676;
-            transform: scale(1);
-        }
-    }
+/* ==========================================================
+   TREKX LANDING PAGE: self-contained, every class is prefixed trx-
+   Change colors and fonts ONLY in the :root block.
+   ========================================================== */
+:root{
+  --trx-bg:#141516;          /* CONFIRM: your smoky charcoal hex */
+  --trx-surface:#1d1f21;     /* cards and form panel */
+  --trx-line:#2e3134;
+  --trx-text:#ECE8E1;        /* CONFIRM: your smoky white */
+  --trx-muted:#A9A69F;
+  --trx-green:#00E676;       /* your brand green */
+  --trx-green-ink:#06240f;   /* text on green buttons */
+  --trx-font-display:Georgia,"Times New Roman",serif;   /* CONFIRM: swap for your display font */
+  --trx-font-body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; /* CONFIRM */
+  --trx-radius:14px;
+  --trx-max:1040px;
+}
 
-    /* CLASS TO TRIGGER THE PULSE */
-    .pulse-dot {
-        animation: pulseGlow 2s infinite ease-in-out;
-    }
+.trx-page,.trx-page *,.trx-page *::before,.trx-page *::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.trx-page{margin:0;background:var(--trx-bg);color:var(--trx-text);font-family:var(--trx-font-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+.trx-page img,.trx-page video,.trx-page iframe{max-width:100%;display:block}
+.trx-page h1,.trx-page h2,.trx-page h3{font-family:var(--trx-font-display);font-weight:600;line-height:1.15;margin:0 0 .6em;letter-spacing:-.01em}
+.trx-page p{margin:0 0 1em}
+.trx-wrap{max-width:var(--trx-max);margin:0 auto;padding:0 1.25rem}
+.trx-section{padding:3.5rem 0}
+.trx-section--tint{background:var(--trx-surface);border-block:1px solid var(--trx-line)}
+.trx-h2{font-size:clamp(1.7rem,5.5vw,2.4rem)}
+.trx-lead{color:var(--trx-muted);max-width:38rem}
+.trx-page :focus-visible{outline:3px solid var(--trx-green);outline-offset:3px}
+
+/* ---------- buttons ---------- */
+.trx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.85rem 1.8rem;border:0;border-radius:999px;background:var(--trx-green);color:var(--trx-green-ink);font:700 1.05rem/1 var(--trx-font-body);text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.trx-btn:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,230,118,.28)}
+.trx-btn--block{width:100%}
+.trx-btn[disabled]{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+
+/* ---------- top bar (not a link on purpose) ---------- */
+.trx-bar{padding:1rem 1.25rem;text-align:center;font-family:var(--trx-font-display);font-size:1.15rem;letter-spacing:.02em;position:relative;z-index:3}
+
+/* ---------- hero: mobile = text, framed 16:9 reel, CTA. Desktop = reel becomes the background ---------- */
+.trx-hero{position:relative;padding-bottom:2.5rem;text-align:center}
+.trx-hero__top{padding-top:.5rem}
+.trx-hero .trx-hero__title{font-size:clamp(2rem,8vw,3.6rem);max-width:16ch;margin-inline:auto}
+.trx-hero .trx-hero__sub{color:var(--trx-muted);max-width:34rem;margin-inline:auto}
+.trx-hero__media{margin:1.25rem -1.25rem;aspect-ratio:16/9;background:#000;position:relative}
+.trx-hero__video{width:100%;height:100%;object-fit:cover}
+.trx-price{font-size:1.15rem;margin-bottom:1.25rem}
+.trx-price strong{color:var(--trx-green);font-weight:700}
+.trx-hero__note{margin:.9rem 0 0;color:var(--trx-muted);font-size:.95rem}
+
+@media (min-width:900px){
+  .trx-hero{min-height:88vh;display:flex;align-items:center;overflow:hidden}
+  .trx-hero__media{position:absolute;inset:0;margin:0;aspect-ratio:auto;z-index:0}
+  .trx-hero__media::after{content:"";position:absolute;inset:0;background:rgba(20,21,22,.6)}
+  /* wrapper stays NON-positioned so the reel anchors to the full-width hero, not the wrapper */
+  .trx-hero .trx-wrap{width:100%}
+  .trx-hero__top,.trx-hero__cta{position:relative;z-index:2;max-width:40rem;margin-inline:auto}
+  .trx-hero .trx-btn--block{width:auto;min-width:300px}
+}
+
+/* ---------- centered section headings ---------- */
+.trx-wrap:not(.trx-about) > .trx-h2,
+.trx-wrap:not(.trx-about) > .trx-lead,
+.trx-film__caption,.trx-fine{text-align:center}
+.trx-wrap:not(.trx-about) > .trx-lead{margin-inline:auto}
+.trx-wrap .trx-steps{max-width:34rem;margin-inline:auto}
+.trx-form-card{margin-inline:auto}
+
+/* ---------- film ---------- */
+.trx-film{position:relative;aspect-ratio:16/9;border-radius:var(--trx-radius);overflow:hidden;background:#000;border:1px solid var(--trx-line)}
+.trx-film__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;padding:0;background:#000 center/cover no-repeat;cursor:pointer}
+.trx-film__play{position:absolute;inset:0;display:grid;place-items:center;border:0;background:rgba(0,0,0,.25);cursor:pointer;color:#fff;font:600 1rem var(--trx-font-body)}
+.trx-film__play span{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--trx-green);color:var(--trx-green-ink);font-size:1.6rem;padding-left:5px}
+.trx-film iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.trx-film__caption{margin:.9rem 0 0;color:var(--trx-muted);font-size:.98rem}
+
+/* ---------- testimonials ---------- */
+.trx-quote{margin:0;padding:1.4rem 1.4rem 1.2rem;border-left:3px solid var(--trx-green);background:var(--trx-surface);border-radius:0 var(--trx-radius) var(--trx-radius) 0}
+.trx-quote p{font-family:var(--trx-font-display);font-size:1.2rem;line-height:1.45;margin-bottom:.7rem}
+.trx-quote cite{font-style:normal;color:var(--trx-muted);font-size:.95rem}
+.trx-quotes{display:grid;gap:1rem}
+
+/* ---------- packages ---------- */
+.trx-packages{display:grid;gap:1rem;margin-top:1.5rem}
+.trx-pkg{background:var(--trx-surface);border:1px solid var(--trx-line);border-radius:var(--trx-radius);padding:1.5rem}
+.trx-pkg--feature{border-color:var(--trx-green)}
+.trx-pkg h3{font-size:1.4rem;margin-bottom:.2rem}
+.trx-pkg__hours{color:var(--trx-muted);margin-bottom:.8rem}
+.trx-pkg__price{font-size:1rem;color:var(--trx-muted);margin-bottom:1rem}
+.trx-pkg__price strong{display:block;font-family:var(--trx-font-display);font-size:2.1rem;color:var(--trx-text);line-height:1.1}
+.trx-pkg ul{margin:0;padding-left:1.1rem;color:var(--trx-text)}
+.trx-pkg li{margin-bottom:.4rem}
+.trx-fine{color:var(--trx-muted);font-size:.95rem;margin-top:1.25rem}
+
+.trx-pkg{position:relative}
+.trx-pkg .trx-pkg__badge{position:absolute;top:-.85rem;left:1.5rem;margin:0;padding:.3rem .95rem;border-radius:999px;background:var(--trx-green);color:var(--trx-green-ink);font:700 .85rem/1.3 var(--trx-font-body);letter-spacing:.02em}
+.trx-pkg--feature{box-shadow:0 10px 34px rgba(0,230,118,.14)}
+
+.trx-pkg .trx-pkg__includes{margin:0 0 .9rem;padding-top:1rem;border-top:1px solid var(--trx-line);color:var(--trx-text);font:700 italic .98rem/1.3 var(--trx-font-body);letter-spacing:.01em}
+.trx-pkg .trx-pkg__includes::before{content:"";display:inline-block;width:.55rem;height:.55rem;margin-right:.6rem;vertical-align:middle;border-radius:50%;background:var(--trx-green);animation:trx-blink 1.8s ease-in-out infinite}
+@keyframes trx-blink{
+  0%,100%{opacity:1;box-shadow:0 0 8px rgba(0,230,118,.7)}
+  50%{opacity:.25;box-shadow:0 0 0 rgba(0,230,118,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .trx-pkg .trx-pkg__includes::before{animation:none}
+}
+
+/* ---------- steps ---------- */
+.trx-steps{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:1.1rem;counter-reset:trx-step}
+.trx-steps li{position:relative;padding-left:3rem;counter-increment:trx-step}
+.trx-steps li::before{content:counter(trx-step);position:absolute;left:0;top:0;width:2.1rem;height:2.1rem;border-radius:50%;border:1.5px solid var(--trx-green);color:var(--trx-green);display:grid;place-items:center;font-weight:700}
+.trx-steps strong{display:block}
+
+/* ---------- about ---------- */
+.trx-about{display:grid;gap:1.5rem;align-items:center}
+.trx-about__photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--trx-radius);background:var(--trx-surface)}
+
+/* ---------- form ---------- */
+.trx-form-card{background:var(--trx-surface);border:1px solid var(--trx-line);border-radius:var(--trx-radius);padding:1.6rem 1.25rem;max-width:560px}
+.trx-field{margin-bottom:1.1rem}
+.trx-field label{display:block;font-weight:600;margin-bottom:.35rem}
+.trx-field .trx-opt{font-weight:400;color:var(--trx-muted)}
+.trx-input{width:100%;min-height:52px;padding:.8rem 1rem;border-radius:10px;border:1px solid #454a4f;background:var(--trx-bg);color:var(--trx-text);font:inherit;font-size:1rem}
+textarea.trx-input{min-height:96px;resize:vertical}
+.trx-input:focus{border-color:var(--trx-green);outline:none;box-shadow:0 0 0 3px rgba(0,230,118,.25)}
+.trx-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.trx-msg{margin:1rem 0 0;padding:.85rem 1rem;border-radius:10px;font-size:.98rem}
+.trx-msg--err{background:rgba(255,92,92,.12);border:1px solid rgba(255,92,92,.5)}
+.trx-msg--ok{background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.45)}
+.trx-form-note{color:var(--trx-muted);font-size:.9rem;margin:.9rem 0 0}
+
+/* ---------- faq ---------- */
+.trx-faq details{border-bottom:1px solid var(--trx-line);padding:1rem 0}
+.trx-faq summary{cursor:pointer;font-weight:600;list-style:none}
+.trx-faq summary::-webkit-details-marker{display:none}
+.trx-faq summary::after{content:"+";float:right;color:var(--trx-green);font-size:1.3rem;line-height:1}
+.trx-faq details[open] summary::after{content:"\2212"}
+.trx-faq p{margin:.7rem 0 0;color:var(--trx-muted)}
+
+/* ---------- footer + sticky cta ---------- */
+.trx-footer{padding:2rem 1.25rem 6rem;text-align:center;color:var(--trx-muted);font-size:.92rem}
+.trx-sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom,0px));background:rgba(20,21,22,.94);backdrop-filter:blur(10px);border-top:1px solid var(--trx-line);transform:translateY(110%);transition:transform .25s ease}
+.trx-sticky.trx-is-on{transform:none}
+
+@media (min-width:700px){
+  .trx-quotes{grid-template-columns:repeat(2,1fr)}
+  .trx-packages{grid-template-columns:repeat(3,1fr)}
+  .trx-about{grid-template-columns:5fr 7fr}
+  .trx-form-card{padding:2rem}
+  .trx-sticky{display:none}
+  .trx-footer{padding-bottom:2.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trx-btn,.trx-sticky{transition:none}
+}
 </style>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel (base code, your pixel ID) -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1823783865305076');
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1823783865305076');
+fbq('track','PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1823783865305076&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1823783865305076&ev=PageView&noscript=1"></noscript>
 </head>
 
-<body id="top">
+<body class="trx-page">
 
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+<div class="trx-bar">Trekx Studios</div>
+
+<!-- ================= HERO ================= -->
+<header class="trx-hero">
+  <div class="trx-wrap">
+    <div class="trx-hero__top">
+      <h1 class="trx-hero__title">Your wedding day, made into a film you'll rewatch for decades.</h1>
+      <p class="trx-hero__sub">Cinematic Wedding Films for couples in Southeast Pennsylvania and Southern California.</p>
     </div>
 
-    <!-- page wrap
-    ================================================== -->
-    <div id="page" class="s-pagewrap">
-
-        <!-- # site header 
-        ================================================== -->
-        <header class="s-header">
-            <div class="row s-header__inner">
-
-                <div class="s-header__block">
-                    <div class="s-header__logo">
-                        <a class="logo" href="weddingbooking.html">
-                            <h1 class="Trekx">Trekx Studios</h1>
-                        </a>
-                    </div>
-                        
-                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-                </div>
-
-                <nav class="s-header__nav">    
-                    <ul class="s-header__menu-links">
-                        <li class="current"><a class="smoothscroll" href="#booking">Book Now</a></li>
-                        <li><a class="smoothscroll" href="#about">About</a></li>
-                        <li><a class="smoothscroll" href="#footer">Contact</a></li>
-                    </ul>    
-                </nav>
-
-            </div>
-        </header>
-
-       <!-- # lead form section
-================================================== -->
-<section id="booking" class="target-section" style="padding-top: 16rem; padding-bottom: 6rem; position: relative; z-index: 1;">
-    <div class="row" style="max-width: 900px; margin: 0 auto; width: 100%;">
-        <div class="column xl-12" style="width: 100%;">
-            
-            <!-- UNIFIED OUTER CONTAINER -->
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px solid rgba(0, 230, 118, 0.25); border-radius: 20px; padding: 3rem 2rem; width: 100%; backdrop-filter: blur(16px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); box-sizing: border-box;">
-                
-                <!-- HERO HEADER AREA INSIDE CARD -->
-                <div class="section-header" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; margin-bottom: 2.5rem;">
-                    
-                    <!-- LIMITED OFFER BADGE -->
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.3); padding: 8px 18px; border-radius: 50px; margin-bottom: 1.5rem;">
-                        <span class="pulse-dot" style="height: 10px; width: 10px; background-color: #00E676; border-radius: 50%; display: inline-block;"></span>
-                        <span style="color: #00E676; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">October Exclusive Promotion</span>
-                    </div>
-
-                    <!-- MAIN HERO TITLE -->
-                    <h2 class="text-display-title" style="color: #FFFFFF; font-size: 2.5rem; line-height: 1.2; font-weight: 800; text-align: center; width: 100%; max-width: 750px; margin: 0 auto 1rem auto; letter-spacing: -0.02em;">
-                        First 5 couples to book a wedding package this month save <span style="color: #00E676; font-weight: 800; text-shadow: 0 0 20px rgba(0, 230, 118, 0.4);">$300</span>
-                    </h2>
-
-                    <!-- SUBTITLE INSTRUCTION -->
-                    <p style="color: #E2E8F0; font-size: 1.2rem; line-height: 1.5; margin: 0 auto; text-align: center; max-width: 600px; font-weight: 400;">
-                        Fill out the form below to check date availability and automatically claim your booking credit.
-                    </p>
-
-                </div>
-
-                <!-- EMBEDDED CLOUDSPOT FORM -->
-                <div class="cloudspot-form-wrapper" style="width: 100%; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 2rem;">
-                    <iframe src="https://trekx-studios.studio.cloudspot.io/lead-forms/v/embed/lf_xcHe87u6N2ThWa18CdDXWJTHe1X" width="100%" height="900" style="border: 0;"></iframe>
-                </div>
-
-            </div>
-
-        </div>
+    <!-- HERO REEL: 15-25 sec silent loop, horizontal. Self-hosted MP4 under ~4 MB. -->
+    <div class="trx-hero__media">
+      <video class="trx-hero__video" autoplay muted loop playsinline preload="metadata" poster="images/LandingPageNew_.jpeg">
+        <source src="images/LandingPage.mp4" type="video/mp4"><!-- REPLACE -->
+      </video>
     </div>
+
+    <div class="trx-hero__cta">
+      <p class="trx-price">Wedding Film packages starting at <strong>$2,400</strong></p>
+      <a class="trx-btn trx-btn--block" href="#inquire" data-trx-cta="hero">Check my date</a>
+      <p class="trx-hero__note">I reply to every inquiry personally, the same day whenever I can.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= FULL FILM ================= -->
+<section class="trx-section" id="film">
+  <div class="trx-wrap">
+    <h2 class="trx-h2">Watch a full Wedding Film</h2>
+    <div class="trx-film" id="trxFilm">
+      <button class="trx-film__poster" type="button" aria-label="Play the Wedding Film" style="background-image:url('media/film-poster.jpg')"></button><!-- REPLACE poster -->
+      <button class="trx-film__play" type="button" aria-label="Play the Wedding Film"><span>&#9654;</span></button>
+    </div>
+    <p class="trx-film__caption"><!-- REPLACE: 2-3 sentences on this film: couple, venue, season, the moment people always mention. --></p>
+  </div>
 </section>
 
+<!-- ================= TESTIMONIAL 1 ================= -->
+<section class="trx-section trx-section--tint">
+  <div class="trx-wrap">
+    <figure class="trx-quote" style="max-width:44rem;margin-inline:auto">
+      <p>&ldquo;As soon as we played back our video, everyone had a smile&rdquo;</p>
+      <cite>Jaris M, January 2026</cite>
+    </figure>
+  </div>
+</section>
 
-
-
-                   
-
-           
-            <!--
-                <ul class="s-intro2__social social-list">
-                    <li>
-                        <a href="https://www.instagram.com/trekx.studio/">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
-                            <span class="u-screen-reader-text">Instagram</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.tiktok.com/@trekx.studios?_t=ZP-8vx4QFTZvzT&_r=1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg> 
-                        </a>
-                    </li>
-                </ul>
-            -->
-                <div class="s-intro2__scroll-down">
-                    <a href="#about" class="smoothscroll">
-                        <div class="scroll-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"></path></svg>
-                        </div>
-                        <span class="scroll-text u-screen-reader-text">Scroll Down</span>
-                    </a>
-                </div> 
-            </div>
-        </section>
-
-        <!-- # about section
-        ================================================== -->
-        <section id="about" class="s-about target-section">
-            <div class="row s-about__content">
-                <div class="column xl-12">    
-                    <div class="section-header" data-num="01">
-                        <h2 class="text-display-title" style="color: whitesmoke">About Trekx Studios.</h2>
-                    </div>
-
-                    <p class="attention-getter" style="color: whitesmoke">
-                        Hi, I’m Ryan — a Christ-driven videographer based in Pennsylvania & SoCal.<br> At <b style="color: whitesmoke">Trekx Studios</b>, I craft cinematic video and photo assets tailored to elevate brands, cover key events, and document milestone moments with movie-quality imagery.
-                    </p>
-                    <!--
-                    <div class="grid-list-items s-about__blocks">
-                        <div class="grid-list-items__item s-about__block">
-                            <h4 class="s-about__block-title" style="color: whitesmoke">Retainer Packages</h4>
-                            <ul class="s-about__list">
-                                <li style="color: whitesmoke">
-                                    Starter
-                                    <span><i style="color: #e6b8009d"></i> Up to a 2 hour shoot day, planning call, 3 vertical videos, basic editing and light branding.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                   Growth
-                                    <span><i style="color: #E6B8009d"></i> 3 Hour shoot day, strategic planning, 5 vertical videos, advanced editing, text animation & transitions.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                  Premium+
-                                    <span><i style="color: #E6B8009d"></i> Customized coverage, multi-day production, sound design, custom elements, and priority scheduling.</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="grid-list-items__item s-about__block">
-                            <h4 class="s-about__block-title" style="color: whitesmoke">Single Production</h4>
-                            <ul class="s-about__list">
-                                <li style="color: whitesmoke">
-                                    Intro
-                                    <span><i style="color: #E6B8009d"></i> 1 hour shoot with one edited video. Ideal for targeted business promos or personal highlights.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                    Spotlight
-                                    <span><i style="color: #E6B8009d"></i> Up to 3 hour shoot. 10 edited photos, 2 edited videos.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                    Event Recap
-                                    <span><i style="color: #E6B8009d"></i> Full-day event coverage. 15-20 edited photos, 2 highlight videos. Optional 4K drone add-on.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="grid-list-items__item s-about__block">
-                            <h4 class="s-about__block-title" style="color: whitesmoke">Real Estate</h4>
-                            <ul class="s-about__list">
-                                <li style="color: whitesmoke">
-                                    Photo Essential
-                                    <span><i style="color: #E6B8009d"></i> Professional HDR images (15-20 images) optimized for MLS listings.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                    Interior Showcase
-                                    <span><i style="color: #E6B8009d"></i> Interior video walkthrough plus 10-15 edited HDR images.</span>
-                                </li>
-                                <li style="color: whitesmoke">
-                                   Premium Showcase
-                                    <span><i style="color: #E6B8009d"></i> Interior + exterior walkthrough, aerial drone footage, and 25 HDR images.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    -->
-        <!-- # footer 
-        ================================================== -->
-        <footer id="footer" class="s-footer target-section">
-
-            <div class="row">
-                <div class="column lg-12">
-                    <div class="section-header light-on-dark" data-num="02">
-                        <h2 class="text-display-title">Get In Touch.</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row s-footer__content">
-                <div class="column xl-6 md-12 s-footer__block s-footer__about">                    
-                    <p class="attention-getter" style="color: whitesmoke">
-                        Fill out the form above and I will be in contact with you within 48 hours. 
-                    </p>               
-                </div>
-           
-                <div class="column xl-6 md-12 s-footer__block s-footer__site-links">
-                    <div class="row">
-                        <div class="column xl-4 lg-5 md-6 tab-12">
-                             <h5></h5>
-                            <ul class="link-list">
-                                <li><a href="https://Instagram.com/trekx.studio"></a></li>
-                                <li><a href="https://www.tiktok.com/@trekx.studios?_t=ZP-8vx4QFTZvzT&_r=1"></a></li>
-                            </ul>
-                        </div>
-                        <div class="column xl-6 md-6 tab-12">
-                            <h5></h5>
-                            <ul class="link-list">
-                                <li><a href="mailto:Ryan@trekxstudios.com"></a></li>
-                            </ul> 
-                        </div>
-                    </div>                    
-                </div>
-            </div>
-        
-            <div class="row s-footer__buttons">
-                <div class="column xl-6 tab-12">
-                    <a href="#top" class="btn btn--primary btn--large u-fullwidth">Back to Form</a>
-                </div>
-            </div>              
-            
-            <div class="row s-footer__bottom">
-                <div class="column xl-6 lg-12">
-                    <ul class="s-footer__social social-list">
-                        
-                        <li>
-                            <a href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
-                                <span class="u-screen-reader-text"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg> 
-                            </a>
-                        </li>
-                    </ul> 
-                </div>
-           
-                
-
-                <div class="column xl-6 lg-12">
-                    <p class="ss-copyright">
-                        <span>© Copyright Trekx Studios, LLC 2026</span> 
-                    </p>
-                </div>
-            </div>
-        </footer>
-
+<!-- ================= PACKAGES ================= -->
+<section class="trx-section" id="packages">
+  <div class="trx-wrap">
+    <h2 class="trx-h2">Wedding Film packages</h2>
+    <p class="trx-lead">Every package is built around your Wedding Film. Pricing starts at the numbers below and depends on your date and venue.</p>
+    <div class="trx-packages">
+      <article class="trx-pkg">
+        <h3>Essential</h3>
+        <p class="trx-pkg__hours">Up to 5 hours of coverage</p>
+        <p class="trx-pkg__price">Starting at <strong>$2,400</strong></p>
+        <ul>
+          <li>Wedding Film, 5 to 7 minutes</li>
+          <li>Multi-camera coverage</li>
+          <li>Digital delivery</li>
+        </ul>
+      </article>
+      <article class="trx-pkg trx-pkg--feature">
+        <p class="trx-pkg__badge">Best value</p>
+        <h3>Signature</h3>
+        <p class="trx-pkg__hours">Up to 8 hours of coverage</p>
+        <p class="trx-pkg__price">Starting at <strong>$3,500</strong></p>
+        <ul>
+          <li>Wedding Film, 7 to 10 minutes</li>
+          <li>Ceremony &amp; Toasts multi-camera edit</li>
+          <li>Vertical teaser</li>
+          <li>Digital delivery</li>
+        </ul>
+      </article>
+      <article class="trx-pkg">
+  <h3>Cinema</h3>
+  <p class="trx-pkg__hours">Up to 10 hours of coverage</p>
+  <p class="trx-pkg__price">Starting at <strong>$4,800</strong></p>
+  <p class="trx-pkg__includes">Everything in Signature, plus</p>
+  <ul>
+    <li>Documentary Feature Film, 12 to 18 minutes</li>
+    <li>Second teaser, sneak peak within 7 days</li>
+    <li>Drone coverage (where venue and airspace allow)</li>
+    <li>USB keepsake drive</li>
+  </ul>
+</article>
     </div>
+    <p class="trx-fine">A 30% retainer holds your date. The balance is due before coverage starts on your wedding day.</p>
+  </div>
+</section>
 
-    <!-- JavaScript
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+<!-- ================= HOW IT WORKS ================= -->
+<section class="trx-section trx-section--tint">
+  <div class="trx-wrap">
+    <h2 class="trx-h2">How booking works</h2>
+    <ol class="trx-steps">
+      <li><strong>Send your date and venue</strong>I confirm availability and reply personally.</li>
+      <li><strong>We talk through your day</strong>A short call to match you with the right package.</li>
+      <li><strong>Hold your date</strong>A 30% retainer reserves it. I take a limited number of weddings each month.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS 2 + 3 ================= -->
+<section class="trx-section">
+  <div class="trx-wrap">
+    <div class="trx-quotes">
+      <figure class="trx-quote"><p>&ldquo;Thank you so much for capturing such a special moment for our family! We absolutely love the video. The quality is amazing, and every detail was captured so beautifully. It truly made the day even more memorable. We couldn't be happier with the final result, and will definitely be reaching out for future events! &rdquo;</p><cite>Andrea, Jun 2026 </cite></figure>
+      <figure class="trx-quote"><p>&ldquo;This was amazing man! I think the film is espectacular!&rdquo;</p><cite>Marco, July 2026</cite></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="trx-section trx-section--tint">
+  <div class="trx-wrap trx-about">
+    <img class="trx-about__photo" src="images/landingpage.jpg" alt="Ryan, lead filmmaker at Trekx Studios" loading="lazy"><!-- REPLACE -->
+    <div>
+      <h2 class="trx-h2">Hi, I'm Ryan.</h2>
+      <p>I'm a Christ-driven videographer based in Pennsylvania and Southern California. I film and edit every wedding myself, so the person you talk to is the person behind the camera and in the edit.</p>
+      <!-- OPTIONAL: add 1-2 sentences about your style or what couples say about working with you. -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORM ================= -->
+<section class="trx-section" id="inquire">
+  <div class="trx-wrap">
+    <h2 class="trx-h2">Check your date</h2>
+    <p class="trx-lead">Four quick details. I'll reply personally with availability.</p>
+
+    <div class="trx-form-card">
+      <form id="trxForm" novalidate>
+        <div class="trx-field">
+          <label for="trx-name">Your names</label>
+          <input class="trx-input" id="trx-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="trx-field">
+          <label for="trx-phone">Phone <span class="trx-opt">(or email below)</span></label>
+          <input class="trx-input" id="trx-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="trx-field">
+          <label for="trx-email">Email <span class="trx-opt">(or phone above)</span></label>
+          <input class="trx-input" id="trx-email" name="email" type="email" autocomplete="email" inputmode="email">
+        </div>
+        <div class="trx-field">
+          <label for="trx-date">Wedding date</label>
+          <input class="trx-input" id="trx-date" name="wedding_date" type="date" required>
+        </div>
+        <div class="trx-field">
+          <label for="trx-venue">Venue or city</label>
+          <input class="trx-input" id="trx-venue" name="venue" type="text" required>
+        </div>
+        <div class="trx-field">
+          <label for="trx-extra">Anything you want me to know about your day? <span class="trx-opt">(optional)</span></label>
+          <textarea class="trx-input" id="trx-extra" name="notes"></textarea>
+        </div>
+
+        <!-- spam trap + ad tracking, filled by script -->
+        <div class="trx-hp" aria-hidden="true"><label>Leave blank<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="page" value="weddingbooking">
+
+        <button class="trx-btn trx-btn--block" type="submit" id="trxSubmit" data-trx-cta="form">Check my date</button>
+        <div id="trxMsg" role="status" aria-live="polite"></div>
+        <p class="trx-form-note">No obligation. Your details are only used to reply to your inquiry.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="trx-section trx-section--tint">
+  <div class="trx-wrap trx-faq">
+    <h2 class="trx-h2">Common questions</h2>
+   <details><summary>When will I get my Wedding Film?</summary><p>Your Wedding Film is normally delivered within 6 weeks of your wedding. During peak season, or any unexpected delays, delivery can run slightly longer. If that happens, I will contact you directly, so you're never left guessing.</p></details>
+
+<details><summary>Do you travel for weddings?</summary><p>Yes. I'm based in Southeast Pennsylvania and Southern California, and I'm happy to travel beyond those areas. Weddings that need a flight or an overnight stay include a travel fee starting at $1,200, which covers airfare, lodging, and ground transportation. Closer drives are quoted by distance. Either way, I'll give you the full number up front, with no surprises.</p></details>
+
+<details><summary>How does payment work?</summary><p>A 30% retainer holds your date, and the remaining balance is due before coverage starts on your wedding day. All payments are made through a secure Stripe-hosted invoice, so your all payment details go to Stripe, a widely used payment processor, and are never stored by me.</p></details>
+
+<details><summary>Will you film the moments that matter to us?</summary><p>Yes. Before every wedding, we'll have a planning call to build your shot priority list. That's where you tell me what matters most and anything special or specific to your day, like a family tradition, a surprise, or a person you want to be sure I capture. I'll plan your coverage around that list so the moments you care about are covered.</p></details>
+    <details><summary>What does my coverage include?</summary><p>Coverage is built around your timeline. In your pre-wedding consult, we map your day and decide where your hours are best spent. Essential packages are best used on your ceremony and the moments that matter most to you. Signature coverage can include getting ready if your schedule allows it, and Cinema is planned to run from getting ready through your send-off.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer class="trx-footer">&copy; Trekx Studios, LLC 2026</footer>
+
+<div class="trx-sticky" id="trxSticky"><a class="trx-btn trx-btn--block" href="#inquire" data-trx-cta="sticky">Check my date</a></div>
+
+<script>
+(function(){
+  /* ===== SETTINGS: edit these ===== */
+  var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxqIdtRwdZtIQUlVlAKbW2w6uFeaFRUry_CW2oVAVQ-m1pDh7vjqcBIh7a5M7KAt6nSjQ/exec';              // your form handler URL (accepts a JSON POST)
+  var FILM_EMBED_URL = 'https://player.vimeo.com/video/1246936566?autopause=0&player_id=0&app_id=58479';
+// or https://www.youtube.com/embed/ID?autoplay=1&rel=0
+  var THANK_YOU_URL = '';                                        // optional: e.g. '/thank-you' (fire Lead there instead if you use a redirect)
+
+  function track(name,data,custom){
+    if(typeof fbq!=='function')return;
+    custom?fbq('trackCustom',name,data||{}):fbq('track',name,data||{});
+  }
+
+  /* --- respect reduced motion for the hero reel --- */
+  var reel=document.querySelector('.trx-hero__video');
+  if(reel&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){reel.removeAttribute('autoplay');reel.pause();}
+
+  /* --- CTA clicks --- */
+  document.querySelectorAll('[data-trx-cta]').forEach(function(el){
+    el.addEventListener('click',function(){track('CTAClick',{location:el.getAttribute('data-trx-cta')},true);});
+  });
+
+  /* --- film: load the embed only on click (keeps the page fast) --- */
+  var film=document.getElementById('trxFilm');
+  film.addEventListener('click',function(){
+    if(film.querySelector('iframe'))return;
+    var f=document.createElement('iframe');
+    f.src=FILM_EMBED_URL;f.allow='autoplay; fullscreen; picture-in-picture';f.allowFullscreen=true;f.title='Wedding Film';
+    film.innerHTML='';film.appendChild(f);
+    track('FilmPlay',{},true);
+  });
+
+  /* --- sticky mobile CTA: show after hero, hide once the form is in view --- */
+  var sticky=document.getElementById('trxSticky'),hero=document.querySelector('.trx-hero'),formSec=document.getElementById('inquire');
+  var pastHero=false,onForm=false;
+  function upd(){sticky.classList.toggle('trx-is-on',pastHero&&!onForm);}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){pastHero=!e[0].isIntersecting;upd();}).observe(hero);
+    new IntersectionObserver(function(e){onForm=e[0].isIntersecting;upd();},{threshold:.15}).observe(formSec);
+  }
+
+  /* --- form --- */
+  var form=document.getElementById('trxForm'),msg=document.getElementById('trxMsg'),btn=document.getElementById('trxSubmit');
+  var started=false;
+  form.addEventListener('focusin',function(){if(!started){started=true;track('FormStart',{},true);}});
+
+  var d=document.getElementById('trx-date');
+  d.min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+
+  var qs=new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+    var i=form.elements[k];if(i&&qs.get(k))i.value=qs.get(k);
+  });
+
+  function show(t,ok){msg.innerHTML='<p class="trx-msg '+(ok?'trx-msg--ok':'trx-msg--err')+'"></p>';msg.firstChild.textContent=t;}
+
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var v=function(n){return form.elements[n].value.trim();};
+    if(form.elements.company.value){return;}  // bot
+    if(!v('name')||!v('wedding_date')||!v('venue')){show('Please add your names, wedding date, and venue.');return;}
+    if(!v('phone')&&!v('email')){show('Please add a phone number or an email so I can reply.');return;}
+    if(v('email')&&!/^\S+@\S+\.\S+$/.test(v('email'))){show('That email address looks off. Please check it.');return;}
+    if(FORM_ENDPOINT.indexOf('REPLACE')===0){show('Form is not connected yet: set FORM_ENDPOINT in the page script.');return;}
+
+    btn.disabled=true;btn.textContent='Sending...';
+    var payload={};new FormData(form).forEach(function(val,k){if(k!=='company')payload[k]=val;});
+
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){if(!r.ok)throw new Error('bad status');
+        track('Lead',{content_name:'Wedding inquiry'});            // fires once, only on success
+        if(THANK_YOU_URL){location.href=THANK_YOU_URL;return;}
+        form.reset();started=true;
+        show('Thank you. I got your inquiry and will reply personally with availability for your date.',true);
+        btn.textContent='Sent';
+      })
+      .catch(function(){
+        btn.disabled=false;btn.textContent='Check my date';
+        show('Something went wrong sending that. Please try again, or email Ryan@trekxstudios.com.');
+      });
+  });
+})();
+</script>
 </body>
 </html>
